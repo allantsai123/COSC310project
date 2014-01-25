@@ -1,4 +1,16 @@
+==============================================
 COSC310project
-==============
 
-Develop an interactive conversational agent that responds to user input. 
+Team Members:
+	-Allan Tsai
+	-Brett Dupree
+	-Manny Haller
+	-Mike Nowicki
+
+Project: Develop an interactive conversational travel agent that responds to user questions using Java and MySQL. 
+The user can ask the chatbot any question that is related to the trip such as weather of the destonation, cost of the vacation, etc. 
+==============================================
+
+FILES/FOLDERS DESCRIPTION
+	-
+	
