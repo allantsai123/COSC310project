@@ -1,24 +1,10 @@
-import java.sql.DriverManager;
-
-import com.mysql.jdbc.Connection;
-
+/*
+ 	This class is used by the system to interface with the database,
+ 	and form SQL queries based on the user input. Will return a
+ 	response from the database for the user.
+ 
+ 
+ */
 public class SqlQuery {
 
-	Connection myConnection;
-	
-	// Initialize connection to database
-	public SqlQuery(){
-		
-		// Address of MySQL server
-		String mySqlUrl = "jdbc:mysql://localhost:3306/mysql";
-	    try {
-	        myConnection = (Connection) DriverManager.getConnection(mySqlUrl);
-	    } catch (Exception ex) {
-	        ex.printStackTrace();
-	    }
-	}
-	
-	
-	
-	
 }
