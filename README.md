@@ -16,3 +16,5 @@ Project Description:
 FILES/FOLDERS DESCRIPTION
 
 MySQL JAR file included for connecting to databases with Java. The file must be included in the build path of the project.
+
+ChatBot folder added as the Project Folder. Add classes to the /src folder as needed.
