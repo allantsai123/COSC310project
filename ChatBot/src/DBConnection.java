@@ -39,7 +39,7 @@ public class DBConnection {
 			// Ensure correct driver
 			Class.forName(JDBC_DRIVER);
 			// Establish Connection to database
-			conn = (Connection) DriverManager.getConnection("jdbc:mysql://"+DB_URL);
+			conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + DB_URL);
 			return true;
 			
 		} catch (SQLException se){
