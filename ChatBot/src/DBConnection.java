@@ -16,7 +16,7 @@ public class DBConnection {
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 
 	// Change '//localhost/STUDENTS' to proper DB address when known.
-	private final String DB_URL = "jdbc:mysql://localhost/mysqlsampledatabase";
+	private final String DB_URL = "localhost/mysqlsampledatabase";
 
 	
 //	Don't know if we need log in info.
@@ -39,7 +39,7 @@ public class DBConnection {
 			// Ensure correct driver
 			Class.forName(JDBC_DRIVER);
 			// Establish Connection to database
-			conn = (Connection) DriverManager.getConnection(DB_URL);
+			conn = (Connection) DriverManager.getConnection("jdbc:mysql://"+DB_URL);
 			return true;
 			
 		} catch (SQLException se){
@@ -50,29 +50,25 @@ public class DBConnection {
 			return false;
 		}
 	}
+
+	// Closes connection to database when program is finished.
+	public boolean disconnectDB() throws SQLException{
+		
+		conn.close();
+	
+		if(conn.isClosed()){
+			return true;
+		} else {
+			return false;
+		}	
+	}
 	
 	// Returns the database connection.
 	public Connection getConn(){
 		return this.conn;
 	}
 	
-	// Closes connection to database when program is finished.
-	public boolean disconnectDB(Connection c){
-		
-		
-		this.conn = c;
-		
-		try {
-			conn.close();
-			if(conn.isClosed()){
-				return true;
-			} else {
-				return false;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-	
+	public String getDBName(){
+		return DB_URL;
 	}
 }
