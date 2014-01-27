@@ -2,7 +2,4 @@
 <component jdk="1.7" jdk_type="JavaSDK">
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$/../ChatBot"/>
-	<lib name="mysql-connector-java-5.1.26-bin.jar" scope="COMPILE">
-		<relative-module-cls project-related="jar://$PROJECT_DIR$/../ChatBot/lib/mysql-connector-java-5.1.26-bin.jar!/"/>
-	</lib>
 </component>
