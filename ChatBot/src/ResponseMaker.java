@@ -28,15 +28,29 @@ public class ResponseMaker {
    public String getImBack() {
       return "Okay, I'm back. What can I help with?";
    }
+   
+   public String getCities(){
+	   
+	   
+	   String cities = "Well, the biggest are ";
+	   
+	   for(String s : Responses.cities){
+		   cities = cities + ", " + s;
+	   }
+	   cities += ".";
+	   return cities;
+   }
 
    public String getDestinationInfo(String location) {
       // TODO getDestinationInfo
 
       if (StringHelper.isNullOrEmpty(location)) {
-         return "Sorry I don't know where you are asking about.";
+         return "Sorry you need to say where you want to go!";
+      } else if (!Responses.locations.contains(location)){
+    	  return "Sorry, we don't do trips to " + location;
       }
 
-      return location + " sounds very nice!";
+      return location + " is very nice! Where would you like to go in " + location;
    }
 
    public String getWeather(String location, String date) {
