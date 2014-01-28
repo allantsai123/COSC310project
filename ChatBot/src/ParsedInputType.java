@@ -10,13 +10,14 @@ public enum ParsedInputType {
    Activity,
    Accomodations,
    TravelMethod,
+   Language,
    LocalTransport,
    GeneralInfo,
    City,
    Questions,
    Actions,
    Dates,
-   Money,
+   Budget,
    BookingInfo,
    
    

@@ -40,6 +40,15 @@ public class ResponseMaker {
 	   cities += ".";
 	   return cities;
    }
+   
+   public String getTransport(String transport){
+	   if(transport != "car" && transport != "drive"){
+		   return Responses.getRandomResponse(Responses.transport);
+	   } else if (transport == "car" || transport == "drive") {
+		   return "You can't drive to Cuba";
+	   }
+	   return "Sorry, we don't book trips by " + transport;
+   }
 
    public String getDestinationInfo(String location) {
       // TODO getDestinationInfo
@@ -52,6 +61,25 @@ public class ResponseMaker {
 
       return location + " is very nice! Where would you like to go in " + location;
    }
+   
+   public String getLanguages(){
+	   return Responses.getRandomResponse(Responses.lang);
+   }
+   
+   public String getDistances(String city1, String city2){
+	   // Something with the API to add to 
+	   String response = Responses.getRandomResponse(Responses.distance);
+	   return response;
+	   
+   }
+   
+   public String getDontKnow(ParsedInputType type){
+	   
+	   if(type == ParsedInputType.DontUnderstand){
+		   return Responses.getRandomResponse(Responses.dontKnow);
+	   }
+	   return "I really don't know.";
+   }
 
    public String getWeather(String location, String date) {
       // TODO getWeather
@@ -62,6 +90,14 @@ public class ResponseMaker {
 
       return "It's hot in " + location;
    }
+   
+   public String getActivities(){
+	   
+	   return "While you're there, you could " + Responses.getRandomResponse(Responses.activities) +
+			   ", or even " + Responses.getRandomResponse(Responses.activities);
+	   
+   }
+   
 
 
   // TODO fix me
@@ -99,5 +135,14 @@ public class ResponseMaker {
       } else { //if ((now.get(Calendar.HOUR_OF_DAY) >= 17) || (now.get(Calendar.HOUR_OF_DAY) < 22)) {
          return "evening";   // 5pm  - 10pm
       }
+   }
+
+   public String getGenAccomodation() {
+	
+	   return null;
+   }
+
+   public String getBudgetAccom(int type){ 
+	   return null;
    }
 }
