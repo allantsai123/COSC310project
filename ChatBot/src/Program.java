@@ -8,7 +8,7 @@ public final class Program {
 
    public static void main(String[] args) {
       try {
-         writeFromBot(agent.getResponseMaker().getGreeting(null) + ". How can I help you?");
+         writeFromBot(agent.getResponseMaker().getGreeting(null));
          readParsePrintLoop();
       } catch (Exception e) {
          System.out.println("\nAn unhandled exception occurred.\n" + e.getMessage() + "\n" + getStackTrace(e));
