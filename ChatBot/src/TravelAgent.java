@@ -14,8 +14,7 @@ public class TravelAgent {
       return responseMaker;
    }
 
-   // Reset state
-   public void reset() {
+   public void resetState() {
       // TODO reset state
    }
 
@@ -41,6 +40,32 @@ public class TravelAgent {
             response = pleaseComeBack(parsedInput);
             break;
 
+         case Activity:
+            response = responseMaker.getActivities();
+            break;
+
+         case City:
+            response = responseMaker.getCities();
+            break;
+
+         case TravelMethod:
+            String transport = parsedInput.getField("travel method");   // Did I get how this works right?
+            response = responseMaker.getTransport(transport);
+            break;
+
+         case Accomodations:
+            response = responseMaker.getGenAccomodation();
+            break;
+
+         case Budget:
+            int amount = Integer.valueOf(parsedInput.getField("budget"));
+            response = responseMaker.getBudgetAccom(amount);
+            break;
+
+         case Language:
+            response = responseMaker.getLanguages();
+            break;
+
          case SetDestination:
             destination = parsedInput.getField("destination");
             response = responseMaker.getDestinationInfo(destination);
@@ -51,7 +76,7 @@ public class TravelAgent {
             break;
 
          case Debug_Reset:
-            reset();
+            resetState();
             response = "State reset.";
             break;
 

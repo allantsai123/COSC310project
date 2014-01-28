@@ -1,19 +1,19 @@
-TravelBot started at Jan 28, 2014 02:00:37 AM
+TravelBot started at Jan 28, 2014 02:25:00 AM
 
 Travel Bot:
-Hi. How can I help you?
+Hey
 
 User:
 hey
 
 Travel Bot:
-Welcome
+Welcome to our travel center. How can I help?
 
 User:
 go to cuba
 
 Travel Bot:
-cuba sounds very nice!
+Sorry, we don't do trips to cuba
 
 User:
 weather
@@ -25,19 +25,19 @@ User:
 bye
 
 Travel Bot:
-See you later
+Bye
 
 User:
 hey
 
 Travel Bot:
-Sorry, I'm busy now.
+I've moved on to helping someone else.
 
 User:
-help please
+please help
 
 Travel Bot:
-I'm busy, try again later
+Okay, I'm back. What can I help with?
 
 User:
 {End of input stream}

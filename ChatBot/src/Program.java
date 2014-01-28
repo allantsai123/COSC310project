@@ -57,7 +57,7 @@ public final class Program {
    private static void startBot() {
       try {
          IORW.writeLine("TravelBot started at " + Utils.getCurrentDateFull());
-         writeFromBot(agent.getResponseMaker().getGreeting(null) + ". How can I help you?");
+         writeFromBot(agent.getResponseMaker().getGreeting(null));
          readParsePrintLoop();
       } catch (Exception e) {
          IORW.writeLine("\r\nAn unhandled exception occurred.\r\n" + e.getMessage() + "\r\n" + Utils.getStackTrace(e));
