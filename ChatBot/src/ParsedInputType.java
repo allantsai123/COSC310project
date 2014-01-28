@@ -13,19 +13,18 @@ public enum ParsedInputType {
    LocalTransport,
    GeneralInfo,
    City,
+   Questions,
+   Actions,
+   Dates,
+   Money,
+   BookingInfo,
+   
    
    SimpleYes,
    SimpleNo,
 
    Debug_Reset,
-   Debug_ShowStats,
-   
-   // types below for the parser
-   Questions,
-   Actions,
-   Dates,
-   Money,
-   BookingInfo
+   Debug_ShowStats
    
    
 }

@@ -1,5 +1,9 @@
 import java.util.*;
 
+// Not sure if this would actually help with searching the sentence, would be better
+// for building sentences from scratch. Substring searches may be easier/quicker than
+// trying to go through all the different lists.
+
 public class ParserDictionary {
 	public static List<String> greet = Arrays.asList("Good <TimeOfDay>", "Hi", "Hello", "Hey", "Greetings", "Howdy", "Welcome");
 	public static List<String> leave = Arrays.asList("Good <TimeOfDay>", "Bye", "Goodbye", "Farewell", "See ya", "See you later", "Take care", "Ciao","Thanks");
@@ -14,6 +18,5 @@ public class ParserDictionary {
 	public static List<String> syn = Arrays.asList("i","you","we","they","i'm","your","my","mine","there","it","their");	
 	public static List<String> verbs = Arrays.asList("get","go", "go to", "want","are","is","like","speak","spoken","travel","cancel","drive","fly","sail");
 	public static List<String> travel = Arrays.asList("car","plane","cruise","bus");
-	
 	
 }
