@@ -49,13 +49,11 @@ public class ResponseMaker {
       return "It's hot in " + location;
    }
 
-
-  // TODO fix me
+   // TODO fix me
    private String substituteParameters(String paramText) {
       // Substitute all dynamic values that don't depend on agent state
       paramText = paramText.replace("<TimeOfDay>", getTimeOfDay());
-    //  paramText = paramText.replace("<Username>", agent.getUsername());
-
+      //  paramText = paramText.replace("<Username>", agent.getUsername());
 
       // Make sure that all parameters were found
       checkAllParamsSubbed(paramText);

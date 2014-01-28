@@ -24,7 +24,7 @@ public class TravelAgent {
 
       // TravelBot doesn't have time for annoying users ;) (unless they're sorry)
       if (userHasSaidFarewell && (parsedInput.getType() != ParsedInputType.PleaseComeBack)) {
-        return Responses.getRandomResponse(Responses.sorrybusys);
+         return Responses.getRandomResponse(Responses.sorrybusys);
       }
 
       // Check which kind of question or statement the user inputted
@@ -38,7 +38,7 @@ public class TravelAgent {
             break;
 
          case PleaseComeBack:
-            response =  pleaseComeBack(parsedInput);
+            response = pleaseComeBack(parsedInput);
             break;
 
          case SetDestination:
@@ -87,8 +87,8 @@ public class TravelAgent {
    }
 
    private String farewell(ParsedInput parsedInput) {
-         userHasSaidFarewell = true;
-         return responseMaker.getFarewell(username);
+      userHasSaidFarewell = true;
+      return responseMaker.getFarewell(username);
    }
 
    private String pleaseComeBack(ParsedInput parsedInput) {

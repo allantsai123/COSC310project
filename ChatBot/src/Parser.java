@@ -2,7 +2,6 @@ import java.util.*;
 
 public final class Parser {
 
-
    public static ParsedInput parseUserMessage(String userMessage) {
       ParsedInputType type = ParsedInputType.DontUnderstand;
       HashMap<String, String> inputs = new HashMap<String, String>();
@@ -54,6 +53,4 @@ public final class Parser {
 //
 //      }
 //   }
-
-
 }
