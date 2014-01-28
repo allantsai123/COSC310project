@@ -28,15 +28,69 @@ public class ResponseMaker {
    public String getImBack() {
       return "Okay, I'm back. What can I help with?";
    }
+   
+   public String getCities(){   
+	   return null;
+   }
+
+   public String getGenAccomodation() {
+	
+	   return Responses.getRandomResponse(Responses.genAccom);
+   }
+
+   public String getBudgetAccom(int amount){ 
+	
+	   String response = "Searching for the best accomodations that match you budget. " + "\n";
+	   
+	   if(amount >= 130){
+		   response += Responses.getRandomResponse(Responses.niceAccom);
+	   } else if(amount > 90){
+		   response += Responses.getRandomResponse(Responses.medAccom);
+	   } else {
+		   response += Responses.getRandomResponse(Responses.cheapAccom);
+	   }
+	   return response;
+   }
+   
+   public String getTransport(String transport){
+	   if(transport != "car" && transport != "drive"){
+		   return Responses.getRandomResponse(Responses.transport);
+	   } else if (transport == "car" || transport == "drive") {
+		   return "You can't drive to Cuba";
+	   }
+	   return "Sorry, we don't book trips by " + transport;
+   }
 
    public String getDestinationInfo(String location) {
       // TODO getDestinationInfo
 
       if (StringHelper.isNullOrEmpty(location)) {
-         return "Sorry I don't know where you are asking about.";
+         return "Sorry you need to say where you want to go!";
+      } else if (!Responses.locations.contains(location.toLowerCase())){
+    	  return "Sorry, we don't do trips to " + location;
       }
 
-      return location + " sounds very nice!";
+      return location + " is very nice! Where would you like to go in " + location;
+   }
+   
+   public String getLanguages(){
+	   return Responses.getRandomResponse(Responses.lang);
+   }
+   
+   public String getDistances(String city1, String city2){
+	   // Something with the API to add to 
+	   String response = Responses.getRandomResponse(Responses.searching);
+	   return response;
+	   // TODO add calculated distances.
+	   
+   }
+   
+   public String getDontKnow(ParsedInputType type){
+	   
+	   if(type == ParsedInputType.DontUnderstand){
+		   return Responses.getRandomResponse(Responses.dontKnow);
+	   }
+	   return "I really don't know.";
    }
 
    public String getWeather(String location, String date) {
@@ -48,7 +102,11 @@ public class ResponseMaker {
 
       return "It's hot in " + location;
    }
-
+   
+   public String getActivities(){
+	   return "While you're there, you could " + Responses.getRandomResponse(Responses.activities) +
+			   ", or even " + Responses.getRandomResponse(Responses.activities);	   
+   }
 
   // TODO fix me
    private String substituteParameters(String paramText) {
