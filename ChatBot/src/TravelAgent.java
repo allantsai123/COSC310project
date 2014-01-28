@@ -53,6 +53,9 @@ public class TravelAgent {
         	 response = responseMaker.getTransport(transport);
         	 break;
 
+         case LocalTransport:
+        	 break;
+
          case Accomodations:
             response = responseMaker.getGenAccomodation();
             break;
