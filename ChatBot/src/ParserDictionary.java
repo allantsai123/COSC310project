@@ -12,7 +12,7 @@ public class ParserDictionary {
 	public static List<String> bookInfo = Arrays.asList("passport", "reservation","book", "booking");
 	public static List<String> lang = Arrays.asList("english","spanish","french");
 	public static List<String> weather = Arrays.asList("weather","temperature","rain","sun","warm","cool","time of year");
-	public static List<String> seasons = Arrays.asList("sping","summer","fall","winter");
+	public static List<String> seasons = Arrays.asList("spring","summer","fall","winter");
 	public static List<String> distance = Arrays.asList("far","long");
 	public static List<String> questions = Arrays.asList("when","how","why","what","where","do","?","can");	
 	public static List<String> syn = Arrays.asList("i","you","we","they","i'm","your","my","mine","there","it","their");	
