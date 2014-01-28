@@ -147,11 +147,4 @@ public class LocationFactory {
 		return null;
 	}
 
-	public static void main(String[] args) throws MalformedURLException, IOException {
-		// TODO Auto-generated method stub
-		
-		System.out.println(getPlaces("Kelowna, BC","pub"));
-
-	}
-
 }
