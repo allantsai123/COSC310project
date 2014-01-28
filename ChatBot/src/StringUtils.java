@@ -1,7 +1,6 @@
 import java.util.*;
 
-public class StringHelper {
-
+public final class StringUtils {
    public static boolean isNullOrEmpty(String input) {
       if (input == null) return true;
       if (input.isEmpty()) return true;

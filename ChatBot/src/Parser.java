@@ -2,20 +2,21 @@ import java.util.*;
 
 public final class Parser {
 
-
    public static ParsedInput parseUserMessage(String userMessage) {
       ParsedInputType type = ParsedInputType.DontUnderstand;
-      HashMap<String, String> inputs = new HashMap<String, String>();
+      HashMap<String, String> inputs = new HashMap<>();
 
       String userMsgLower = userMessage.toLowerCase();
+
+      if (userMsgLower.compareTo("exit") == 0) System.exit(0);
 
       // TODO proper tokenizer to check for words, not substring search
       // TODO lots of work in here
 
       // Check for greetings and farewells
-      if (StringHelper.containsAnyIgnoreCase(userMessage, Responses.greetings)) {
+      if (StringUtils.containsAnyIgnoreCase(userMessage, Responses.greetings)) {
          type = ParsedInputType.Greeting;
-      } else if (StringHelper.containsAnyIgnoreCase(userMessage, Responses.farewells)) {
+      } else if (StringUtils.containsAnyIgnoreCase(userMessage, Responses.farewells)) {
          type = ParsedInputType.Farewell;
       }
 
@@ -50,10 +51,8 @@ public final class Parser {
 //      int startOfValue = start + keyphrase.length();
 //
 //      if (start >= 0 && input.length() > startOfValue) {
-//        // String name = StringHelper.extractTextUntilEndOfSentence(input, startOfValue);
+//        // String name = StringUtils.extractTextUntilEndOfSentence(input, startOfValue);
 //
 //      }
 //   }
-
-
 }

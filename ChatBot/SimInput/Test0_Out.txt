@@ -1,0 +1,43 @@
+TravelBot started at Jan 28, 2014 02:25:00 AM
+
+Travel Bot:
+Hey
+
+User:
+hey
+
+Travel Bot:
+Welcome to our travel center. How can I help?
+
+User:
+go to cuba
+
+Travel Bot:
+Sorry, we don't do trips to cuba
+
+User:
+weather
+
+Travel Bot:
+It's hot in cuba
+
+User:
+bye
+
+Travel Bot:
+Bye
+
+User:
+hey
+
+Travel Bot:
+I've moved on to helping someone else.
+
+User:
+please help
+
+Travel Bot:
+Okay, I'm back. What can I help with?
+
+User:
+{End of input stream}

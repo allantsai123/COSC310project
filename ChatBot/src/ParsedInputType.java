@@ -25,6 +25,4 @@ public enum ParsedInputType {
 
    Debug_Reset,
    Debug_ShowStats
-   
-   
 }
