@@ -25,13 +25,13 @@ ChatBot folder added as the Project Folder. Add classes to the /src folder as ne
 
 TO DO
 
-1. Code ChatBot
+Code ChatBot
 - Improved parsing
 - Input vocabulary
 - Update responses
 - Integrate API's
 
-2. Project Plan
+Project Plan
 - Project descirption with link to repo
 - SDLC and reasoning
 - Point of list of SLDC phases with 3 tasks: At least 2 tasks have subtasks
@@ -39,7 +39,7 @@ TO DO
 - Gantt chart of work/dependencies
 - Limitations of program
 
-3. Limitations of project
+Limitations of project
 
-4. Documentation of code.
+Documentation of code.
  
