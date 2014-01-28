@@ -38,11 +38,9 @@ public class Responses {
    public static List<String> dontKnow = Arrays.asList("I do not know the answer to that.");
    
 
-
    public static String getRandomResponse(List<String> responses) {
        return responses.get(rand.nextInt(responses.size()));
    }
 
-    
 }
 

@@ -7,13 +7,11 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 
 public class LocationFactory {
-	
 	
 	public Location locationMaker(String destination){
 		Location loc = new Location();

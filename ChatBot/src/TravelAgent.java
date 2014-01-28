@@ -136,7 +136,7 @@ public class TravelAgent {
          if (StringHelper.isNullOrEmpty(this.destination)) this.destination = destination;
       }
 
-      return responseMaker.getWeather(destination, date);
+      return responseMaker.getWeather(destination);
    }
 
    public String getUsername() {

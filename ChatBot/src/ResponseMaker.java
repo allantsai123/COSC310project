@@ -5,6 +5,10 @@
 import java.util.*;
 
 public class ResponseMaker {
+	
+   LocationFactory lf = new LocationFactory();	
+   Location l = new Location();
+   
    public String getGreeting(String username) {
       if (StringHelper.isNullOrEmpty(username)) {
          return substituteParameters(Responses.getRandomResponse(Responses.greetings));
@@ -30,7 +34,13 @@ public class ResponseMaker {
    }
    
    public String getCities(){   
-	   return null;
+   	   	String cities = "Well, the biggest are ";
+   	   
+   	   	for(String s : Responses.cities){
+   	   		cities = cities + ", " + s;
+   	   	}
+   	   		cities += ".";
+   	   	return cities;
    }
 
    public String getGenAccomodation() {
@@ -43,11 +53,11 @@ public class ResponseMaker {
 	   String response = "Searching for the best accomodations that match you budget. " + "\n";
 	   
 	   if(amount >= 130){
-		   response += Responses.getRandomResponse(Responses.niceAccom);
+		   response += " " + Responses.getRandomResponse(Responses.niceAccom);
 	   } else if(amount > 90){
-		   response += Responses.getRandomResponse(Responses.medAccom);
+		   response += " " + Responses.getRandomResponse(Responses.medAccom);
 	   } else {
-		   response += Responses.getRandomResponse(Responses.cheapAccom);
+		   response += " " + Responses.getRandomResponse(Responses.cheapAccom);
 	   }
 	   return response;
    }
@@ -78,8 +88,13 @@ public class ResponseMaker {
    }
    
    public String getDistances(String city1, String city2){
-	   // Something with the API to add to 
 	   String response = Responses.getRandomResponse(Responses.searching);
+	   
+	   // Modifies origin to set user origin/destination
+	   l.setOrigin(city1);
+	   lf.locationMaker(city2);
+	   // Get distance between two cities and return.
+	   response = "The distance between " + city1 + " and " + city2 + " is " + l.distanceFromOrigin;
 	   return response;
 	   // TODO add calculated distances.
 	   
@@ -93,14 +108,14 @@ public class ResponseMaker {
 	   return "I really don't know.";
    }
 
-   public String getWeather(String location, String date) {
+   public String getWeather(String location) {
       // TODO getWeather
-
-      if (StringHelper.isNullOrEmpty(location) || StringHelper.isNullOrEmpty(date)) {
-         return "I need to know a place and a date to help you with that.";
+      if (StringHelper.isNullOrEmpty(location)) {
+         return "I need to know a place to help you with that.";
       }
-
-      return "It's hot in " + location;
+      l.setOrigin(location);
+      lf.locationMaker(location);
+      return "It is currently " + l.tempInCelcius + " degrees C in " + location;
    }
    
    public String getActivities(){
