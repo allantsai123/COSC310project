@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ParsedInput {
+public final class ParsedInput {
    private ParsedInputType type;
    private HashMap<String, String> inputs;
 

@@ -4,7 +4,7 @@ public class TravelAgent {
    private ResponseMaker responseMaker = new ResponseMaker();
 
    // Agent state
-   private ArrayList<ParsedInput> previousInputs = new ArrayList<ParsedInput>();
+   private ArrayList<ParsedInput> previousInputs = new ArrayList<>();
    private String username;
    private String destination;
    private boolean userHasGreeted = false;
@@ -75,7 +75,7 @@ public class TravelAgent {
    private String greeting(ParsedInput parsedInput) {
       // Set username if given
       String name = parsedInput.getField("username");
-      if (!StringHelper.isNullOrEmpty(name)) this.username = name;
+      if (!StringUtils.isNullOrEmpty(name)) this.username = name;
 
       // Either say hi or get snappy if greetings are repeated
       if (userHasGreeted) {
@@ -100,12 +100,12 @@ public class TravelAgent {
       String date = parsedInput.getField("date");
       String destination = parsedInput.getField("destination");
 
-      if (StringHelper.isNullOrEmpty(destination)) {
+      if (StringUtils.isNullOrEmpty(destination)) {
          // If user does not supply location, use a previously set one
          destination = this.destination;
       } else {
          // Save this location if user has not set one
-         if (StringHelper.isNullOrEmpty(this.destination)) this.destination = destination;
+         if (StringUtils.isNullOrEmpty(this.destination)) this.destination = destination;
       }
 
       return responseMaker.getWeather(destination, date);

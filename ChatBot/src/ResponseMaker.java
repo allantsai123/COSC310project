@@ -1,12 +1,8 @@
-/**
- * Created by Manny on 26/01/14.
- */
-
 import java.util.*;
 
-public class ResponseMaker {
+public final class ResponseMaker {
    public String getGreeting(String username) {
-      if (StringHelper.isNullOrEmpty(username)) {
+      if (StringUtils.isNullOrEmpty(username)) {
          return substituteParameters(Responses.getRandomResponse(Responses.greetings));
       } else {
          return substituteParameters(Responses.getRandomResponse(Responses.greetings)) + " " + username;
@@ -18,7 +14,7 @@ public class ResponseMaker {
    }
 
    public String getFarewell(String username) {
-      if (StringHelper.isNullOrEmpty(username)) {
+      if (StringUtils.isNullOrEmpty(username)) {
          return substituteParameters(Responses.getRandomResponse(Responses.farewells));
       } else {
          return substituteParameters(Responses.getRandomResponse(Responses.farewells)) + " " + username;
@@ -32,7 +28,7 @@ public class ResponseMaker {
    public String getDestinationInfo(String location) {
       // TODO getDestinationInfo
 
-      if (StringHelper.isNullOrEmpty(location)) {
+      if (StringUtils.isNullOrEmpty(location)) {
          return "Sorry I don't know where you are asking about.";
       }
 
@@ -42,7 +38,7 @@ public class ResponseMaker {
    public String getWeather(String location, String date) {
       // TODO getWeather
 
-      if (StringHelper.isNullOrEmpty(location) || StringHelper.isNullOrEmpty(date)) {
+      if (StringUtils.isNullOrEmpty(location) || StringUtils.isNullOrEmpty(date)) {
          return "I need to know a place and a date to help you with that.";
       }
 

@@ -1,0 +1,43 @@
+TravelBot started at Jan 28, 2014 02:00:37 AM
+
+Travel Bot:
+Hi. How can I help you?
+
+User:
+hey
+
+Travel Bot:
+Welcome
+
+User:
+go to cuba
+
+Travel Bot:
+cuba sounds very nice!
+
+User:
+weather
+
+Travel Bot:
+It's hot in cuba
+
+User:
+bye
+
+Travel Bot:
+See you later
+
+User:
+hey
+
+Travel Bot:
+Sorry, I'm busy now.
+
+User:
+help please
+
+Travel Bot:
+I'm busy, try again later
+
+User:
+{End of input stream}

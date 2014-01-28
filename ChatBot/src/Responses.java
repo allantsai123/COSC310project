@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Responses {
+public final class Responses {
    private static java.util.Random rand = new java.util.Random();
 
    public static List<String> greetings = Arrays.asList("Good <TimeOfDay>", "Hi", "Hello", "Hey", "Greetings", "Howdy", "Welcome");
