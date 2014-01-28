@@ -16,13 +16,6 @@ Project Description:
 FILES/FOLDERS DESCRIPTION
 
 
-<<<<<<< HEAD
-ChatBot folder added as the Project Folder. Add classes to the /src folder as needed.
-- MySQL driver added to buildpath, do not need to add again.
-- Currently attempts to establish a database connection. Working on features to create unique SQL queries based on user input.
-=======
->>>>>>> origin/uhh-branch
-
 ========================================================================================================
 
 TO DO
