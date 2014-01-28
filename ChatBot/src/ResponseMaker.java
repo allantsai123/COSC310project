@@ -29,16 +29,27 @@ public class ResponseMaker {
       return "Okay, I'm back. What can I help with?";
    }
    
-   public String getCities(){
+   public String getCities(){   
+	   return null;
+   }
+
+   public String getGenAccomodation() {
+	
+	   return Responses.getRandomResponse(Responses.genAccom);
+   }
+
+   public String getBudgetAccom(int amount){ 
+	
+	   String response = "Searching for the best accomodations that match you budget. " + "\n";
 	   
-	   
-	   String cities = "Well, the biggest are ";
-	   
-	   for(String s : Responses.cities){
-		   cities = cities + ", " + s;
+	   if(amount >= 130){
+		   response += Responses.getRandomResponse(Responses.niceAccom);
+	   } else if(amount > 90){
+		   response += Responses.getRandomResponse(Responses.medAccom);
+	   } else {
+		   response += Responses.getRandomResponse(Responses.cheapAccom);
 	   }
-	   cities += ".";
-	   return cities;
+	   return response;
    }
    
    public String getTransport(String transport){
@@ -55,7 +66,7 @@ public class ResponseMaker {
 
       if (StringHelper.isNullOrEmpty(location)) {
          return "Sorry you need to say where you want to go!";
-      } else if (!Responses.locations.contains(location)){
+      } else if (!Responses.locations.contains(location.toLowerCase())){
     	  return "Sorry, we don't do trips to " + location;
       }
 
@@ -68,8 +79,9 @@ public class ResponseMaker {
    
    public String getDistances(String city1, String city2){
 	   // Something with the API to add to 
-	   String response = Responses.getRandomResponse(Responses.distance);
+	   String response = Responses.getRandomResponse(Responses.searching);
 	   return response;
+	   // TODO add calculated distances.
 	   
    }
    
@@ -92,13 +104,9 @@ public class ResponseMaker {
    }
    
    public String getActivities(){
-	   
 	   return "While you're there, you could " + Responses.getRandomResponse(Responses.activities) +
-			   ", or even " + Responses.getRandomResponse(Responses.activities);
-	   
+			   ", or even " + Responses.getRandomResponse(Responses.activities);	   
    }
-   
-
 
   // TODO fix me
    private String substituteParameters(String paramText) {
@@ -135,14 +143,5 @@ public class ResponseMaker {
       } else { //if ((now.get(Calendar.HOUR_OF_DAY) >= 17) || (now.get(Calendar.HOUR_OF_DAY) < 22)) {
          return "evening";   // 5pm  - 10pm
       }
-   }
-
-   public String getGenAccomodation() {
-	
-	   return null;
-   }
-
-   public String getBudgetAccom(int type){ 
-	   return null;
    }
 }

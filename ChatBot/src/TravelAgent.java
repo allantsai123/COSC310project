@@ -50,7 +50,7 @@ public class TravelAgent {
         	 break;
         	 
          case TravelMethod:
-        	 String transport = parsedInput.getField("travel method");	// Did I get how this works right?
+        	 String transport = parsedInput.getField("travel method");
         	 response = responseMaker.getTransport(transport);
         	 break;
         	 
