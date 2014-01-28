@@ -14,7 +14,7 @@ public class Responses {
 		   "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins");
    
    public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language, although some people do speak English",
-		   "People from Cuba speak Spanish.");
+		   "People in Cuba speak Spanish.");
    
    public static List<String> transport = Arrays.asList("Well people in Havana and Santiago de Cuba use local buses. There are also government owned taxis.", "If you want to get between cities coach bus is the way to go.", 
 		   "We could help set you up with a rental car if you'd like.", "You should be able to walk to most places within the cities. Otherwise coach buses are a good choice.");
