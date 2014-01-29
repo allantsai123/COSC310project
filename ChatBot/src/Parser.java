@@ -2,67 +2,69 @@ import java.util.*;
 
 public final class Parser {
     public static ParsedInput parseUserMessage(String userMessage) {
-        ParsedInputType type = ParsedInputType.DontUnderstand;
-        HashMap<String, String> inputs = new HashMap<>();
-        TokenCollection tokenCollection = new TokenCollection();
+        ParsedInput parsedInput = new ParsedInput();
+
+//        ParsedInputType type = ParsedInputType.DontUnderstand;
+//        HashMap<String, String> inputs = new HashMap<>();
+//        TokenCollection tokenCollection = new TokenCollection();
 
         String userMsgLower = userMessage.toLowerCase().trim();
         if (userMsgLower.compareTo("exit") == 0) System.exit(0);
         if (userMsgLower.isEmpty()) {
-            type = ParsedInputType.None;
+            parsedInput.type = ParsedInputType.None;
         } else {
             // Create the token collection
-            tokenCollection.parse(userMessage);
+            parsedInput.tokenCollection.parse(userMessage);
 
             // In order, check for
-            parseGreetingOrFarewell(userMsgLower, type, inputs, tokenCollection);
-            parsePleaseComeBack(userMsgLower, type, inputs, tokenCollection);
-            parseDestination(userMsgLower, type, inputs, tokenCollection);
-            parseWeather(userMsgLower, type, inputs, tokenCollection);
+            parseGreetingOrFarewell(parsedInput);
+            parsePleaseComeBack(parsedInput);
+            parseDestination(parsedInput);
+            parseWeather(parsedInput);
 
-            // parse(tokenCollection, type, inputs);
-            // parse(tokenCollection, type, inputs);
+            // parse(parsedInput);
+            // parse(parsedInput);
         }
 
-        return new ParsedInput(type, inputs, tokenCollection);
+        return parsedInput;
     }
 
-    private static void parse(TokenCollection tokens, ParsedInputType type, HashMap<String, String> inputs) {
+    private static void parse(ParsedInput parsedInput) {
 
     }
 
-    private static void parseGreetingOrFarewell(String userMessage, ParsedInputType type, HashMap<String, String> inputs, TokenCollection tokens) {
+    private static void parseGreetingOrFarewell(ParsedInput parsedInput) {
         // Check for greetings and farewells
-        if (StringUtils.containsAnyIgnoreCase(userMessage, Responses.greetings)) {
-            type = ParsedInputType.Greeting;
-        } else if (StringUtils.containsAnyIgnoreCase(userMessage, Responses.farewells)) {
-            type = ParsedInputType.Farewell;
+        if (StringUtils.containsAnyIgnoreCase(parsedInput.getOrigMsg(), Responses.greetings)) {
+            parsedInput.type = ParsedInputType.Greeting;
+        } else if (StringUtils.containsAnyIgnoreCase(parsedInput.getOrigMsg(), Responses.farewells)) {
+            parsedInput.type = ParsedInputType.Farewell;
         }
 
         // Check for user telling their name
-        if (userMessage.contains("im dave")) {
-            inputs.put("username", "Dave");
-            type = ParsedInputType.Greeting;
+        if (parsedInput.getOrigMsg().contains("im dave")) {
+            parsedInput.setField("username", "Dave");
+            parsedInput.type = ParsedInputType.Greeting;
         }
     }
 
-    private static void parsePleaseComeBack(String userMessage, ParsedInputType type, HashMap<String, String> inputs, TokenCollection tokens) {
-        if (userMessage.contains("please help")) {
-            type = ParsedInputType.PleaseComeBack;
+    private static void parsePleaseComeBack(ParsedInput parsedInput) {
+        if (parsedInput.getOrigMsg().contains("please help")) {
+            parsedInput.type = ParsedInputType.PleaseComeBack;
         }
     }
 
-    private static void parseDestination(String userMessage, ParsedInputType type, HashMap<String, String> inputs, TokenCollection tokens) {
-        if (userMessage.contains("go to cuba")) {
-            type = ParsedInputType.SetDestination;
-            inputs.put("destination", "cuba");
+    private static void parseDestination(ParsedInput parsedInput) {
+        if (parsedInput.getOrigMsg().contains("go to cuba")) {
+            parsedInput.type = ParsedInputType.SetDestination;
+            parsedInput.setField("destination", "cuba");
         }
     }
 
-    private static void parseWeather(String userMessage, ParsedInputType type, HashMap<String, String> inputs, TokenCollection tokens) {
-        if (userMessage.contains("weather")) {
-            inputs.put("date", "null");
-            type = ParsedInputType.CheckWeather;
+    private static void parseWeather(ParsedInput parsedInput) {
+        if (parsedInput.getOrigMsg().contains("weather")) {
+            parsedInput.setField("date", "null");
+            parsedInput.type = ParsedInputType.CheckWeather;
         }
     }
 }
