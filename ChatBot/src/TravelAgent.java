@@ -93,7 +93,7 @@ public class TravelAgent {
         }
 
         // Save valid inputs to memory
-        if (parsedInput.getType() != ParsedInputType.DontUnderstand && parsedInput.getType() != ParsedInputType.None) {
+        if (parsedInput.getType().isWellFormed()) {
             previousInputs.add(parsedInput);
         }
 
