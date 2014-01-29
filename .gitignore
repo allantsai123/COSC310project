@@ -28,9 +28,15 @@ local.properties
 # PDT-specific
 .buildpath
 
+#################
+## Test output
+#################
 
+SimInput/Test*_Out.txt
 
-# Intellij
+#################
+## IntelliJ
+#################
 .idea/
 *.iml
 *.iws
