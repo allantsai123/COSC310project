@@ -4,10 +4,6 @@ public final class Parser {
     public static ParsedInput parseUserMessage(String userMessage) {
         ParsedInput parsedInput = new ParsedInput();
 
-//        ParsedInputType type = ParsedInputType.DontUnderstand;
-//        HashMap<String, String> inputs = new HashMap<>();
-//        TokenCollection tokenCollection = new TokenCollection();
-
         String userMsgLower = userMessage.toLowerCase().trim();
         if (userMsgLower.compareTo("exit") == 0) System.exit(0);
         if (userMsgLower.isEmpty()) {

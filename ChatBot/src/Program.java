@@ -6,13 +6,12 @@ public final class Program {
 
     public static void main(String[] args) {
         readArguments(args);
-        agent = new TravelAgent();
         startBot();
     }
 
     // Reads the program arguments for automated conversation input/output files
     private static void readArguments(String[] args) {
-        String rootPath = Utils.getExecutingPath();
+        String simInputPath = Utils.getExecutingPath() + "\\..\\SimInput\\";
         String inputFilePath = "";
         String outputFilePath = "";
 
@@ -20,22 +19,34 @@ public final class Program {
             if (arg.contains("=")) {
                 int indexOfEquals = arg.indexOf('=');
 
-                String option = arg.substring(0, indexOfEquals);
-                String value = arg.substring(indexOfEquals + 1);
+                String option = arg.substring(0, indexOfEquals).trim();
+                String value = arg.substring(indexOfEquals + 1).trim();
+
+                if (value.isEmpty()) {
+                    displayInvalidArgument(arg);
+                    continue;
+                }
 
                 switch (option) {
                     case "in":
-                        inputFilePath = rootPath + "\\..\\SimInput\\" + value;
+                        inputFilePath = simInputPath + value;
                         break;
                     case "out":
-                        outputFilePath = rootPath + "\\..\\SimInput\\" + value;
+                        outputFilePath = simInputPath + value;
                         break;
                     default:
+                        displayInvalidArgument(arg);
                 }
+            } else {
+                displayInvalidArgument(arg);
             }
         }
 
         setupStreams(inputFilePath, outputFilePath);
+    }
+
+    private static void displayInvalidArgument(String arg) {
+        IORW.writeLine("Invalid argument: '" + arg + "'");
     }
 
     // Redirect IO if input/output files are given
@@ -56,6 +67,7 @@ public final class Program {
 
     private static void startBot() {
         try {
+            agent = new TravelAgent();
             IORW.writeLine("TravelBot started at " + Utils.getCurrentDateFull());
             writeFromBot(agent.getResponseMaker().getGreeting(null));
             readParsePrintLoop();
