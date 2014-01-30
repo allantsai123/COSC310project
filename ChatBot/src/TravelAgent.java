@@ -53,9 +53,6 @@ public class TravelAgent {
                 response = responseMaker.getTransport(transport);
                 break;
 
-            case LocalTransport:
-                break;
-
             case Accomodations:
                 response = responseMaker.getGenAccomodation();
                 break;
@@ -77,12 +74,15 @@ public class TravelAgent {
             case CheckWeather:
                 response = checkWeather(parsedInput);
                 break;
-
-            case Debug_Reset:
-                resetState();
-                response = "State reset.";
-                break;
-
+                
+            case SimpleYes:
+            	response = responseMaker.getSimpleYes();
+            	break;
+            	
+            case SimpleNo:
+            	response = responseMaker.getSimpleNo();
+            	break;
+            
             case DontUnderstand:
                 response = "Sorry, I don't understand what you said.";
                 break;
@@ -90,6 +90,11 @@ public class TravelAgent {
             case None:
             default:
                 response = "...";
+                
+            case Debug_Reset:
+                resetState();
+                response = "State reset.";
+                break;
         }
 
         // Save valid inputs to memory
@@ -118,14 +123,12 @@ public class TravelAgent {
         userHasSaidFarewell = true;
         return responseMaker.getFarewell(username);
     }
-
     private String pleaseComeBack(ParsedInput parsedInput) {
         userHasSaidFarewell = false;
         return responseMaker.getImBack();
     }
 
     private String checkWeather(ParsedInput parsedInput) {
-        String date = parsedInput.getField("date");
         String destination = parsedInput.getField("destination");
 
         if (StringUtils.isNullOrEmpty(destination)) {
@@ -135,7 +138,6 @@ public class TravelAgent {
             // Save this location if user has not set one
             if (StringUtils.isNullOrEmpty(this.destination)) this.destination = destination;
         }
-
         return responseMaker.getWeather(destination);
     }
 

@@ -7,7 +7,7 @@ public final class Responses {
     public static List<String> farewells = Arrays.asList("Good <TimeOfDay>", "Bye", "Goodbye", "Farewell", "See ya", "See you later", "Take care", "Ciao", "Thanks for stopping by.");
     public static List<String> sorrybusys = Arrays.asList("I've moved on to helping someone else.", "Sorry, I'm busy now.", "I'm busy, try again later");
 
-    public static List<String> locations = Arrays.asList("cuba");
+    public static List<String> locations = Arrays.asList("Cuba");
     public static List<String> cities = Arrays.asList("Havana", "Santiago de Cuba", "Santa Lucia", "Varadero");
 
     public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit the museum of Che Guevara",
