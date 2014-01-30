@@ -32,7 +32,7 @@ local.properties
 ## Test output
 #################
 
-SimInput/Test*_Out.txt
+**/[Ss]im[Ii]nput/[Tt]est*_[Oo]ut.txt
 
 #################
 ## IntelliJ
@@ -40,7 +40,7 @@ SimInput/Test*_Out.txt
 .idea/
 *.iml
 *.iws
-out/artifacts/*
+out/artifacts/
 
 #################
 ## Visual Studio
