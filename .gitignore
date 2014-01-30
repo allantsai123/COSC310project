@@ -40,7 +40,7 @@ SimInput/Test*_Out.txt
 .idea/
 *.iml
 *.iws
-
+out/artifacts/*
 
 #################
 ## Visual Studio

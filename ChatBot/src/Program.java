@@ -68,7 +68,7 @@ public final class Program {
     private static void startBot() {
         try {
             agent = new TravelAgent();
-            IORW.writeLine("TravelBot started at " + Utils.getCurrentDateFull());
+            IORW.writeLine("TravelBot started at " + Utils.getCurrentDateFull() + "\r\n" + "Powered by Google");
             writeFromBot(agent.getResponseMaker().getGreeting(null));
             readParsePrintLoop();
         } catch (Exception e) {
