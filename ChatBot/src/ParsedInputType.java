@@ -11,7 +11,7 @@ public enum ParsedInputType {
     Activity,               //
     Accomodations,
     TravelMethod,           //
-    GettingAround,			//  
+    GetAround,			//  
     Language,               //
     City,                   //  For distances
     Dates,                  //   

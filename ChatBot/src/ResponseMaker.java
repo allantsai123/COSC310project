@@ -37,14 +37,25 @@ public final class ResponseMaker {
         cities += ".";
         return cities;
     }
+    
+    public String getAround(){
+    	return Responses.getRandomResponse(Responses.transport);
+    }
 
-    public String getTransport(String transport) {
-        if (transport != "car" && transport != "drive") {
-            return Responses.getRandomResponse(Responses.transport);
-        } else if (transport == "car" || transport == "drive") {
+    public String getTravelMethod(String travelMethod) {
+        if (travelMethod == "car" || travelMethod == "drive") {
             return "You can't drive to Cuba";
-        }
-        return "Sorry, we don't book trips by " + transport;
+        } else if (travelMethod == "boat" || travelMethod == "cruise"){
+        	String response = Responses.searching + "\n";
+    		response += Responses.getRandomResponse(Responses.boatResponses);
+        	return response;
+    	} else if (travelMethod == "fly" || travelMethod == "flight" || travelMethod == "plane"){
+    		String response = Responses.searching + "\n";
+    		response += Responses.getRandomResponse(Responses.flightResponses);
+    		return response;
+    	}
+        
+    	return "Sorry, we don't book trips by " + travelMethod;
     }
 
     public String getGenAccomodation() {
@@ -65,8 +76,6 @@ public final class ResponseMaker {
     }
 
     public String getDestinationInfo(String location) {
-        // TODO getDestinationInfo
-
         if (StringUtils.isNullOrEmpty(location)) {
             return "Sorry you need to say where you want to go!";
         } else if (!Responses.locations.contains(location.toLowerCase())) {
@@ -102,7 +111,6 @@ public final class ResponseMaker {
     }
 
     public String getWeather(String location) {
-        // TODO getWeather
         if (StringUtils.isNullOrEmpty(location)) {
             return "I need to know a place to help you with that.";
         }

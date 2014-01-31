@@ -52,10 +52,14 @@ public class TravelAgent {
                 response = responseMaker.getCities();
                 break;
 
+            // How the user wants to get to destination
             case TravelMethod:
                 String transport = parsedInput.getField("travel method");
-                response = responseMaker.getTransport(transport);
+                response = responseMaker.getTravelMethod(transport);
                 break;
+                
+            case GetAround:
+            	response = responseMaker.getAround();
 
             case Accomodations:
                 response = responseMaker.getGenAccomodation();
