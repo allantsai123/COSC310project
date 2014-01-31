@@ -11,7 +11,7 @@ public final class Program {
 
     // Reads the program arguments for automated conversation input/output files
     private static void readArguments(String[] args) {
-        String simInputPath = Utils.getExecutingPath() + "\\..\\SimInput\\";
+        String executingPath = Utils.getExecutingPath();
         String inputFilePath = "";
         String outputFilePath = "";
 
@@ -29,10 +29,10 @@ public final class Program {
 
                 switch (option) {
                     case "in":
-                        inputFilePath = simInputPath + value;
+                        inputFilePath = executingPath + value;
                         break;
                     case "out":
-                        outputFilePath = simInputPath + value;
+                        outputFilePath = executingPath + value;
                         break;
                     default:
                         displayInvalidArgument(arg);

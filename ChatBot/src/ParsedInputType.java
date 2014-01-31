@@ -1,27 +1,23 @@
 public enum ParsedInputType {
-    None,                    //
-    DontUnderstand,            //
-    Greeting,                //
-    Farewell,                //
-    PleaseComeBack,            //
+    None,                   //
+    DontUnderstand,         //
+    Greeting,               //
+    Farewell,               //
+    PleaseComeBack,         //
 
-    SetDestination,            //
-    CheckWeather,            //
-    Activity,                //
+    SetDestination,         //
+    CheckWeather,           //
+    Activity,               //
     Accomodations,
-    TravelMethod,            //
-    Language,                //
-    LocalTransport,
-    GeneralInfo,
-    City,                    //
-    //Questions
-    Actions,                    //
-    Dates,                    //
-    Budget,                    //
-    BookingInfo,                //
-
-    SimpleYes,                //
-    SimpleNo,                //
+    TravelMethod,           //
+    GettingAround,			//  
+    Language,               //
+    City,                   //  For distances
+    Dates,                  //   
+    Budget,                 //  amount affordable for hotels
+    
+    SimpleYes,              //
+    SimpleNo,               //
 
     Debug_Reset,
     Debug_ShowStats;

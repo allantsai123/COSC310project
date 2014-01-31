@@ -82,14 +82,15 @@ public final class ResponseMaker {
 
     public String getDistances(String city1, String city2) {
         String response = Responses.getRandomResponse(Responses.searching);
-
+        
         // Modifies origin to set user origin/destination
         l.setOrigin(city1);
         lf.locationMaker(city2);
+        // lf.setTransportMethod(parsedInput.getField("transport"); Have a method like this so we can change how to determine distances
+       
         // Get distance between two cities and return.
         response = "The distance between " + city1 + " and " + city2 + " is " + l.distanceFromOrigin;
         return response;
-        // TODO add calculated distances.
     }
 
     public String getDontKnow(ParsedInputType type) {
@@ -97,7 +98,7 @@ public final class ResponseMaker {
             return Responses.getRandomResponse(Responses.dontKnow);
         }
 
-        return "I really don't know.";
+        return "I really don't know...";
     }
 
     public String getWeather(String location) {
@@ -151,4 +152,13 @@ public final class ResponseMaker {
             return "evening";   // 5pm  - 10pm
         }
     }
+
+	public String getSimpleNo() {
+		return Responses.getRandomResponse(Responses.simpleNo);
+	}
+
+	public String getSimpleYes() {
+		return Responses.getRandomResponse(Responses.simpleYes);
+		}
+
 }
