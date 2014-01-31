@@ -7,7 +7,7 @@ import java.util.*;
 public class ParserDictionary {
     public static List<String> greet =     Arrays.asList("good morning", "good afternoon", "good evening", "hi", "hello", "hey", "greetings", "howdy");
     public static List<String> leave =     Arrays.asList("good night", "bye", "goodbye", "farewell", "see ya", "see you later", "take care", "ciao", "thanks");
-
+    public static List<String> comeBack =  Arrays.asList("please help", "come back", "please come back", "i need help", "that's rude");
     public static List<String> dest =      Arrays.asList("cuba");
     public static List<String> city =      Arrays.asList("havana", "santiago de cuba", "santa lucia", "varadero");
     public static List<String> bookInfo =  Arrays.asList("passport", "reservation", "book", "booking");

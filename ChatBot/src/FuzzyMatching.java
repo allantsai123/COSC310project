@@ -98,14 +98,14 @@ public final class FuzzyMatching {
     // higher values indicate higher similarity
     private static double getSimilarity(int sourceLen, int matchLen, int distance) {
         // TODO make sure this formula actually works
-        return (sourceLen + matchLen + 1) / (distance + 1);
+        return (double)(sourceLen + matchLen + 1) / (double)(distance + 1);
     }
 
     // Gets the right index of the source string where the best match of substring is found
     // Returns -1 if errors are over the allowed amount
     public static int IndexOfEndOfMatch(String source, String substring, double errorAllowed) {
         int smallerLength = Math.min(source.length(), substring.length());
-        int allowedDistance = (int) Math.ceil(errorAllowed * (double) smallerLength);
+        int allowedDistance = (int) Math.round(errorAllowed * (double) smallerLength);
 
        // IORW.writeLine("len " + smallerLength);
        // IORW.writeLine("allowed " + allowedDistance);

@@ -21,10 +21,10 @@ public final class ParsedInput {
 
     private int getAllowedDistance(String source, String match) {
         int smallerLength = Math.min(source.length(), match.length());
-        return (int) Math.floor(FUZZY_ERROR_RATE * (double) smallerLength);
+        return (int) Math.round(FUZZY_ERROR_RATE * (double) smallerLength);
     }
 
-    public boolean containsAnyPhrase(List<String> phrases) {
+    public String getMatchingPhrase(List<String> phrases) {
         // Pad with spaces to help avoid in string searches
         String userInputPadded = " " + tokenCollection.getStrippedInput() + " ";
         double bestSimilarity = 0;
@@ -41,7 +41,7 @@ public final class ParsedInput {
             // Run the fuzzy substring matcher
             FuzzySubstringResults result = FuzzyMatching.Substring(userInputPadded, phrasePadded);
 
-            IORW.writeLine("DEBUG -- dist:" + result.levenshteinDistance + " with: '" + phrase + "' at " + result.indexOfEndOfMatch + " rank " + result.similarity);
+           // IORW.writeLine("DEBUG -- dist: " + result.levenshteinDistance + ", allowed: " + allowedDistance + ",  with: '" + phrase + "' at: " + result.indexOfEndOfMatch + " rank: " + Math.round(result.similarity));
 
             if (result.levenshteinDistance <= allowedDistance) { // Input contains a close-enough recognized phrase
                 if (result.similarity > bestSimilarity) {
@@ -54,9 +54,17 @@ public final class ParsedInput {
 
         if (bestSimilarity > 0) {
             IORW.writeLine("DEBUG -- match found with: " + bestPhrase);
-            return true;
+            return bestPhrase;
         } else {
-            return false;
+            return bestPhrase;
         }
+    }
+
+    public boolean containsAnyPhrase(List<String> phrases) {
+       if (!getMatchingPhrase(phrases).isEmpty()) {
+           return true;
+       } else {
+           return false;
+       }
     }
 }
