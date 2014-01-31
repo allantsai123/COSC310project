@@ -21,7 +21,7 @@ public final class ParsedInput {
 
     private int getAllowedDistance(String source, String match) {
         int smallerLength = Math.min(source.length(), match.length());
-        return (int) Math.ceil(FUZZY_ERROR_RATE * (double) smallerLength); // TODO should be floor
+        return (int) Math.floor(FUZZY_ERROR_RATE * (double) smallerLength);
     }
 
     public boolean containsAnyPhrase(List<String> phrases) {
