@@ -1,5 +1,6 @@
 public enum ParsedInputType {
     None,                   //
+    TooLong,
     DontUnderstand,         //
     Greeting,               //
     Farewell,               //
@@ -25,6 +26,7 @@ public enum ParsedInputType {
     public boolean isWellFormed() {
         return (this != ParsedInputType.None) &&
                (this != ParsedInputType.DontUnderstand) &&
+               (this != ParsedInputType.TooLong) &&
                (this != ParsedInputType.Debug_Reset) &&
                (this != ParsedInputType.Debug_ShowStats);
     }

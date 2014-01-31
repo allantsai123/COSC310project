@@ -10,10 +10,10 @@ public final class Token {
     }
 
     public String extractWord() {
-        return RegexPatterns.getFirstMatch(RegexPatterns.words, fullToken);
+        return Regex.getFirstMatch(Regex.words, fullToken);
     }
 
     public double extractNumber() {
-        return Double.parseDouble(RegexPatterns.getFirstMatch(RegexPatterns.anyNum, fullToken));
+        return Double.parseDouble(Regex.getFirstMatch(Regex.anyNum, fullToken));
     }
 }

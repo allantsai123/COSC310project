@@ -28,6 +28,10 @@ public class TravelAgent {
 
         // Check which kind of question or statement the user inputted
         switch (parsedInput.getType()) {
+            case TooLong:
+                response = "Sorry, your message is too long. I don't have time to read that.";
+                break;
+
             case Greeting:
                 response = greeting(parsedInput);
                 break;

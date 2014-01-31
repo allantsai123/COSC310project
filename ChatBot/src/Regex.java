@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class RegexPatterns {
+public final class Regex {
     public static Pattern wordsAndNumbers = Pattern.compile("(\\s[0-9]*\\.[0-9]*\\s)|((?i)\\b([A-Z0-9]*'[A-Z0-9]*|[A-Z0-9]*-[A-Z0-9]*|[A-Z0-9]*)\\b)");
     public static Pattern words = Pattern.compile("(?i)\\b([A-Z]*'[A-Z]*|[A-Z]*-[A-Z]*|[A-Z]*|)\\b");
     public static Pattern anyNum = Pattern.compile("[+-]?(\\d{1,3}(,\\d{3})+\\.\\d*|\\d{1,3}(,\\d{3})+|\\d*\\.\\d*|\\d*)");
@@ -30,5 +30,9 @@ public final class RegexPatterns {
         }
 
         return allMatches;
+    }
+
+    public static List<String> tokenizeOnWhitespace(String input) {
+        return Arrays.asList(input.split(Regex.whitespace.pattern()));
     }
 }

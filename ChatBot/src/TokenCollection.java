@@ -4,9 +4,9 @@ public final class TokenCollection {
     private String originalInput;
     private String lowercaseInput;
     private String strippedInput;
-    List<Token> tokens = new ArrayList<>();
-    List<String> words = new ArrayList<>();
-    List<String> numbers = new ArrayList<>();
+    private List<Token> tokens = new ArrayList<>();
+    private List<String> words = new ArrayList<>();
+    private List<String> numbers = new ArrayList<>();
 
     public String getStrippedInput() {
         return strippedInput;
@@ -44,10 +44,10 @@ public final class TokenCollection {
 
     private static String stripPunctuationAndSquashWhitespace(String input) {
         // Removes most punctuation, leaves $ - + ' , . ?
-        String stripped = RegexPatterns.mostPunctuation.matcher(input).replaceAll(" ");
+        String stripped = Regex.mostPunctuation.matcher(input).replaceAll(" ");
 
         // Squashes multiple whitespace into a single space
-        String squashed = RegexPatterns.whitespace.matcher(input).replaceAll(" ");
+        String squashed = Regex.whitespace.matcher(input).replaceAll(" ");
 
         return squashed;
     }
@@ -55,7 +55,7 @@ public final class TokenCollection {
     private static List<Token> tokenize(String input) {
         List<Token> tokens = new ArrayList<>();
 
-        for (String fullToken : input.split(RegexPatterns.whitespace.pattern())) {
+        for (String fullToken : input.split(Regex.whitespace.pattern())) {
             tokens.add(new Token(fullToken));
         }
 
@@ -63,10 +63,10 @@ public final class TokenCollection {
     }
 
     private static List<String> parseWords(String input) {
-        return RegexPatterns.getAllMatches(RegexPatterns.words, input);
+        return Regex.getAllMatches(Regex.words, input);
     }
 
     private static List<String> parseNumbers(String input) {
-        return RegexPatterns.getAllMatches(RegexPatterns.anyNum, input);
+        return Regex.getAllMatches(Regex.anyNum, input);
     }
 }

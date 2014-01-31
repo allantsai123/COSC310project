@@ -5,19 +5,49 @@ import java.util.*;
 // trying to go through all the different lists.
 
 public class ParserDictionary {
+    public static List<String> greet =     Arrays.asList("good morning", "good afternoon", "good evening", "hi", "hello", "hey", "greetings", "howdy");
+    public static List<String> leave =     Arrays.asList("good night", "bye", "goodbye", "farewell", "see ya", "see you later", "take care", "ciao", "thanks");
 
-    public static List<String> greet = Arrays.asList("Good <TimeOfDay>", "Hi", "Hello", "Hey", "Greetings", "Howdy", "Welcome");
-    public static List<String> leave = Arrays.asList("Good <TimeOfDay>", "Bye", "Goodbye", "Farewell", "See ya", "See you later", "Take care", "Ciao", "Thanks");
-    public static List<String> dest = Arrays.asList("Cuba");
-    public static List<String> city = Arrays.asList("Havana", "Santiago de Cuba", "Santa Lucia", "Varadero");
-    public static List<String> bookInfo = Arrays.asList("passport", "reservation", "book", "booking");
-    public static List<String> lang = Arrays.asList("english", "spanish", "french");
-    public static List<String> weather = Arrays.asList("weather", "temperature", "rain", "sun", "warm", "cool", "time of year");
-    public static List<String> seasons = Arrays.asList("spring", "summer", "fall", "winter");
-    public static List<String> distance = Arrays.asList("far", "long");
+    public static List<String> dest =      Arrays.asList("cuba");
+    public static List<String> city =      Arrays.asList("havana", "santiago de cuba", "santa lucia", "varadero");
+    public static List<String> bookInfo =  Arrays.asList("passport", "reservation", "book", "booking");
+    public static List<String> lang =      Arrays.asList("english", "spanish", "french");
+    public static List<String> weather =   Arrays.asList("weather", "temperature", "rain", "sun", "warm", "cool", "time of year");
+    public static List<String> seasons =   Arrays.asList("spring", "summer", "fall", "winter");
+    public static List<String> distance =  Arrays.asList("far", "long");
     public static List<String> questions = Arrays.asList("when", "how", "why", "what", "where", "do", "?", "can");
-    public static List<String> syn = Arrays.asList("i", "you", "we", "they", "i'm", "your", "my", "mine", "there", "it", "their");
-    public static List<String> verbs = Arrays.asList("get", "go", "go to", "want", "are", "is", "like", "speak", "spoken", "travel", "cancel", "drive", "fly", "sail");
-    public static List<String> travel = Arrays.asList("car", "plane", "cruise", "bus");
+    public static List<String> syn =       Arrays.asList("i", "you", "we", "they", "i'm", "your", "my", "mine", "there", "it", "their");
+    public static List<String> verbs =     Arrays.asList("get", "go", "go to", "want", "are", "is", "like", "speak", "spoken", "travel", "cancel", "drive", "fly", "sail");
+    public static List<String> travel =    Arrays.asList("car", "plane", "cruise", "bus");
 
+    // Stores the phrase lists as a list of phrases, each phrase being a list of words in the phrase
+    private static HashMap<List<String>, List<List<String>>> cachedLists = new HashMap<>();
+
+    public static List<List<String>> getTokenizedPhraseList(List<String> phraseList) {
+        List<List<String>> tokenizedPhraseList;
+
+        // Check if result is cached
+        if (!cachedLists.containsKey(phraseList)) { // Not found in cache
+            tokenizedPhraseList = tokenizePhrases(phraseList);  // Break down the phrases into a list of tokenized phrases
+            cachedLists.put(phraseList, tokenizedPhraseList); // Save the result
+        } else {
+            tokenizedPhraseList = cachedLists.get(phraseList); // Result found in cache
+        }
+
+           return tokenizedPhraseList;
+    }
+
+    // Creates a list of tokenized phrases
+    // Each phrase is itself a list of tokens (words)
+    private static List<List<String>> tokenizePhrases(List<String> phraseList) {
+        List<List<String>> tokenizedPhraseList = new ArrayList<List<String>>();
+
+        for (String phrase : phraseList) { // For every phrase in the list
+            // Break down the phrase into tokens (words)
+            // then add the list of tokens to our list of tokenized phrases
+            tokenizedPhraseList.add(Regex.tokenizeOnWhitespace(phrase));
+        }
+
+        return tokenizedPhraseList;
+    }
 }

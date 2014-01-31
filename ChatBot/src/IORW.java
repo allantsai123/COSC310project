@@ -31,4 +31,8 @@ public final class IORW {
         outputStream.print(x + "\r\n");
         if (writeToSystemOut) System.out.println(x);
     }
+
+    public static void writeLine(int x) {
+        writeLine(Integer.toString(x));
+    }
 }
