@@ -28,7 +28,7 @@ public class LocationFactory {
 	/*
 	 * Return values could be to any decimal place, we only want two.
 	 */
-	private static double round(double value, int places) {
+	public static double round(double value, int places) {
 	    if (places < 0) throw new IllegalArgumentException();
 	    long factor = (long) Math.pow(10, places);
 	    value = value * factor;

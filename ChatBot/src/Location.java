@@ -28,15 +28,14 @@ public class Location {
 	}
 	
 	public String estimateTravelCost(){
-		
-		return null;
+		return "Flight to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin/2.02,2);
 	}
 	public String estimateTravelCost(String methodOfTravel){
-		
-		return null;
-	}
-	public String getDistance(String methodOfTravel){
-		
+		if (methodOfTravel.equalsIgnoreCase("flying"))
+			return estimateTravelCost();
+		else if (methodOfTravel.equalsIgnoreCase("driving"))
+			return "Driving to " + this.destination + " from " + this.origin + " would cost approximately $" + lf.round((this.distanceFromOrigin/10)*1.2, 2);
+			
 		return null;
 	}
 	
