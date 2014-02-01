@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class LocationFactory {
 	
 	
-	public void locationMaker(Location loc){
+	public void build(Location loc){
 		setWeather(loc);
 		setDistance(loc);
 		getPlaces(loc,"food");
@@ -130,7 +130,7 @@ public class LocationFactory {
 		return new double[]{0,0}; 
 	}
 	
-	public static void getPlaces(Location loc, String keyword) {
+	public static boolean getPlaces(Location loc, String keyword) {
 		ArrayList toReturn = new ArrayList();
 		
 		try {
@@ -155,9 +155,13 @@ public class LocationFactory {
 				index++;
 			 }
 			 loc.places.put(keyword, toReturn);	
+			 return true;
 		 }
 		 
-		} catch (IOException e){}
+		} catch (IOException e){
+			return false;
+		}
+		return false;
 	}
 
 }

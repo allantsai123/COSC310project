@@ -15,12 +15,12 @@ public class Location {
 	
 	public Location(String destination){
 		this.destination = destination;
-		new LocationFactory().locationMaker(this);
+		lf.build(this);
 	}
 	public Location(String origin, String destination){
 		this.origin = origin;
 		this.destination = destination;
-		new LocationFactory().locationMaker(this);
+		lf.build(this);
 	}
 		
 	public void setOrigin(String origin){
@@ -46,7 +46,8 @@ public class Location {
 	
 	public String getPlaces(String keyword){
 		if (!places.containsKey(keyword)){
-			lf.getPlaces(this, keyword);
+			if (!lf.getPlaces(this, keyword))
+				return "I could not find any places for that keyword.";
 		} 
 		ArrayList<String> pl = places.get(keyword);
 		String returnString = "";
