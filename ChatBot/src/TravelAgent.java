@@ -49,9 +49,9 @@ public class TravelAgent {
             case Activity:
                 response = responseMaker.getActivities();
                 break;
-                
+
             case GetKeyword:
-            	response = responseMaker.getKeywordPlaces(savedInputs.get("keyword"));
+                response = responseMaker.getKeywordPlaces(savedInputs.get("keyword"));
 
             case ListCities:
                 response = responseMaker.getCities();
@@ -59,17 +59,17 @@ public class TravelAgent {
 
             // How the user wants to get to destination
             case TravelMethod:
-               // String transport = parsedInput.getField("travel method");
+                // String transport = parsedInput.getField("travel method");
                 response = responseMaker.getTravelMethod(savedInputs.get("travel method"));
                 response = responseMaker.getTravelCost(savedInputs.get("travel method"));
                 break;
 
             case Distance:
-                response = responseMaker.getDistances(savedInputs.get("city"),savedInputs.get("city2"));
+                response = responseMaker.getDistances(savedInputs.get("city"), savedInputs.get("city2"));
                 break;
 
             case GetAround:
-            	response = responseMaker.getAround();
+                response = responseMaker.getAround();
                 break;
 
             case Accomodations:
@@ -94,15 +94,15 @@ public class TravelAgent {
             case CheckWeather:
                 response = responseMaker.getWeather(savedInputs.get("destination"));
                 break;
-                
+
             case SimpleYes:
-            	response = responseMaker.getSimpleYes();
-            	break;
-            	
+                response = responseMaker.getSimpleYes();
+                break;
+
             case SimpleNo:
-            	response = responseMaker.getSimpleNo();
-            	break;
-            
+                response = responseMaker.getSimpleNo();
+                break;
+
             case DontUnderstand:
                 response = "Sorry, I don't understand what you said.";
                 break;
@@ -116,6 +116,10 @@ public class TravelAgent {
                 resetState();
                 response = "State reset.";
                 break;
+
+            case Debug_ShowStats:
+                response = getDebugStats();
+                break;
         }
 
         // Save valid inputs to memory
@@ -123,6 +127,16 @@ public class TravelAgent {
             previousInputs.add(parsedInput);
         }
         return response;
+    }
+
+    private String getDebugStats() {
+        String stats = "";
+
+        for (Map.Entry<String, String> entry : savedInputs.entrySet()) {
+            stats += entry.getKey() + " = " + entry.getValue() + "\r\n";
+        }
+
+        return stats;
     }
 
     private String greeting(ParsedInput parsedInput) {
@@ -138,6 +152,7 @@ public class TravelAgent {
         userHasSaidFarewell = true;
         return responseMaker.getFarewell(savedInputs.get("username"));
     }
+
     private String pleaseComeBack(ParsedInput parsedInput) {
         userHasSaidFarewell = false;
         return responseMaker.getImBack();
