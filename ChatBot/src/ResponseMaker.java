@@ -99,6 +99,7 @@ public final class ResponseMaker {
         } else {
             destination = city + ", " + location;
         }
+        l = new Location(location);
         
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
@@ -116,17 +117,13 @@ public final class ResponseMaker {
     }
 
     public String getDistances(String city, String city2) {
-        String response = Responses.getRandomResponse(Responses.searching);
-
-        l.setOrigin(city);
-        l.setDestination(city2);
-
-        response = "The distance between " + l.origin + " and " + l.destination + " is " + l.distanceFromOrigin + " kilometers.";
+        String response = Responses.getRandomResponse(Responses.searching) + "\n";
+        l = new Location(city,city2);
+        
+        response = "The distance between " + city + " and " + city2 + " is " + l.distanceFromOrigin + " kilometers.";
         return response;
     }
     
-    
-
     public String getDontKnow(ParsedInputType type) {
         if (type == ParsedInputType.DontUnderstand) {
             return Responses.getRandomResponse(Responses.dontKnow);
@@ -142,10 +139,13 @@ public final class ResponseMaker {
             return "I need to know a place to help you with that.";
         }
         
-        l = new Location(destination);
+        Random r = new Random();
+        int temp = r.nextInt(10);
+        temp = temp+20;
+        
         l.setDestination(destination);
-        //lf.locationMaker(location);
-        return "It is currently " + l.tempInCelcius + " degrees C in " + destination;
+        lf.build(l);
+        return "It is currently " + temp + " degrees C in " + l.destination;
     }
 
     public String getActivities() {
@@ -185,9 +185,5 @@ public final class ResponseMaker {
 	}
 	public String getSimpleYes() {
 		return Responses.getRandomResponse(Responses.simpleYes);
-	}
-
-	public void setLocation(Location l) {
-		this.l = l;
 	}
 }

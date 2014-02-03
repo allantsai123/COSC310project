@@ -16,7 +16,7 @@ public class LocationFactory {
 	
 	
 	public void build(Location loc){
-		setWeather(loc);
+//		setWeather(loc);
 		setDistance(loc);
 		getPlaces(loc,"food");
 	}
@@ -75,38 +75,38 @@ public class LocationFactory {
 		}
 	 return false;
 	}
-	
-	private static boolean setWeather(Location loc) {
-		/*
-		 * Construct URL from paramters, open the stream, read it, and create a JSON object from it.
-		 */
-		String url = "http://api.openweathermap.org/data/2.5/weather?q=" + URLEncoder.encode(loc.destination);
-	
-		try {
-		Scanner scan = new Scanner(new URL(url).openStream());
-		 String str = new String();
-		 while (scan.hasNext()){
-			str += scan.nextLine() + "\n";
-		 } 
-		 /* Navigate JSON to find temperature and description.
-		  * 
-		  * Sample URL
-		  * http://api.openweathermap.org/data/2.5/weather?q=kelowna,bc
-		  */
-		 JSONObject json = new JSONObject(str);
-		 double tempInKelvin = json.getJSONObject("main").getDouble("temp");
-		 String description  = json.getJSONArray("weather").getJSONObject(0).getString("description");
-		 loc.tempInCelcius = round((tempInKelvin - 273.15),2);
-		 loc.weatherDescription = description;
-		 return true;
-		} catch (MalformedURLException e){} catch (IOException e) {}
-	 
-		/*
-		 * Return 0 in error case;
-		 */
-		return false;
-	}
-	
+//	
+//	private static boolean setWeather(Location loc) {
+//		/*
+//		 * Construct URL from paramters, open the stream, read it, and create a JSON object from it.
+//		 */
+//		String url = "http://api.openweathermap.org/data/2.5/weather?q=" + URLEncoder.encode(loc.destination);
+//	
+//		try {
+//		Scanner scan = new Scanner(new URL(url).openStream());
+//		 String str = new String();
+//		 while (scan.hasNext()){
+//			str += scan.nextLine() + "\n";
+//		 } 
+//		 /* Navigate JSON to find temperature and description.
+//		  * 
+//		  * Sample URL
+//		  * http://api.openweathermap.org/data/2.5/weather?q=kelowna,bc
+//		  */
+//		 JSONObject json = new JSONObject(str);
+//		 double tempInKelvin = json.getJSONObject("main").getDouble("temp");
+//		 String description  = json.getJSONArray("weather").getJSONObject(0).getString("description");
+//		 loc.tempInCelcius = round((tempInKelvin - 273.15),2);
+//		 loc.weatherDescription = description;
+//		 return true;
+//		} catch (MalformedURLException e){} catch (IOException e) {}
+//	 
+//		/*
+//		 * Return 0 in error case;
+//		 */
+//		return false;
+//	}
+//	
 	private static double[] geocode(String s) throws IOException{
 		String geocodeUrl = "http://maps.googleapis.com/maps/api/geocode/json?address=";
     	geocodeUrl += URLEncoder.encode(s) + "&sensor=true";
@@ -145,7 +145,7 @@ public class LocationFactory {
 			
 		 }
 		 JSONObject json = new JSONObject(str);
-		 if (json.getString("status").equalsIgnoreCase("ok")){
+		if (json.getString("status").equalsIgnoreCase("ok")){
 			 JSONArray j = json.getJSONArray("results");
 			 int index = 0;
 			 JSONObject tmp;
@@ -156,12 +156,10 @@ public class LocationFactory {
 			 }
 			 loc.places.put(keyword, toReturn);	
 			 return true;
-		 }
-		 
+		}	 
 		} catch (IOException e){
 			return false;
 		}
 		return false;
 	}
-
 }

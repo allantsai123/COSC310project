@@ -2,6 +2,7 @@ import java.util.*;
 
 public class TravelAgent {
     private ResponseMaker responseMaker = new ResponseMaker();
+    private Location l;
 
     // Agent state
     private ArrayList<ParsedInput> previousInputs = new ArrayList<>();
@@ -30,7 +31,13 @@ public class TravelAgent {
 
         // Check which kind of question or statement the user inputted
         switch (parsedInput.getType()) {
-            case TooLong:
+            
+        	case SetDestination:
+            	response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
+            	l = new Location(savedInputs.get("destination"));
+            	break;
+        	
+        	case TooLong:
                 response = "Sorry, your message is too long. I don't have time to read that.";
                 break;
 
@@ -65,7 +72,13 @@ public class TravelAgent {
                 break;
 
             case Distance:
-                response = responseMaker.getDistances(savedInputs.get("city"), savedInputs.get("city2"));
+            	if(savedInputs.get("city2") != null){
+            		l = new Location(savedInputs.get("city"), savedInputs.get("city2"));
+            		response = responseMaker.getDistances(l.origin, savedInputs.get("city2"));
+            	} else {
+            		l = new Location(savedInputs.get("city"));
+            		response = responseMaker.getDistances(l.origin,savedInputs.get("city"));
+            	}
                 break;
 
             case GetAround:
@@ -83,12 +96,6 @@ public class TravelAgent {
 
             case Language:
                 response = responseMaker.getLanguages(savedInputs.get("destination"));
-                break;
-
-            case SetDestination:
-                response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
-                Location l = new Location(savedInputs.get("destination"));
-                responseMaker.setLocation(l);
                 break;
 
             case CheckWeather:

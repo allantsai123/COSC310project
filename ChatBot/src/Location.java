@@ -5,13 +5,17 @@ import java.util.HashMap;
 public class Location {
 	LocationFactory lf = new LocationFactory();
 	public HashMap<String,ArrayList<String>> places = new HashMap<>();
-	public String origin = "kelowna, bc";
+	public String origin = "Kelowna, BC";
 	public String destination;
 	public double tempInCelcius;
 	public String weatherDescription;
 	public double distanceFromOrigin;
 	public double distanceFromOriginDriving;
 	public double distanceFromOriginFlying;
+	
+	public Location(){
+		
+	}
 	
 	public Location(String destination){
 		this.destination = destination;
@@ -56,5 +60,5 @@ public class Location {
 		for (String s : pl)
 			returnString += s + "\n";
 			return returnString;
-	}
+	}	
 }

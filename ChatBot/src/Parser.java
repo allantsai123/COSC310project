@@ -108,7 +108,7 @@ public final class Parser {
             if (matches.size() == 0) {
                 // No cities given
             } else if (matches.size() == 1) {
-                parsedInput.setField("city2", matches.get(0));
+                parsedInput.setField("city", matches.get(0));
             } else {
                 parsedInput.setField("city", matches.get(0));
                 parsedInput.setField("city2", matches.get(1));

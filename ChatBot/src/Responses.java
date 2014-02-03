@@ -16,8 +16,7 @@ public final class Responses {
 
     public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
 
-    public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit some ancient Mayan ruins at Chichen Itza",
-            "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
+    public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit some ancient Mayan ruins at Chichen Itza","see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
 
     public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language in <Dest>, although some people do speak English","People in <Dest> speak Spanish.");
 
@@ -33,8 +32,7 @@ public final class Responses {
 
     public static List<String> cheapAccom = Arrays.asList("Our top discount hotels in <Dest> are Hotel Plaza and Hotel Tropicoco. Only $55 a night.","We've partnered with some great places. You might like Hotel Tropicoco, only $50, a night!", "One of our best reviewed hotels is Club Amigo Caracol in <Dest>. It should fit your budget.");
 
-    public static List<String> genAccom = Arrays.asList("We offer a wide variety of accomodations. Do you have a budget?",
-            "We offer lots of different hotels. Do you have a price in mind?", "Were you interested in a family resort, or one of our luxury offerings?");
+    public static List<String> genAccom = Arrays.asList("We offer a wide variety of accomodations. Do you have a budget?","We offer lots of different hotels. Do you have a price in mind?", "Were you interested in a family resort, or one of our luxury offerings?");
 
     public static List<String> searching = Arrays.asList("Well let me find out... ", "Calculating... ", "Let me look that up... ", "Determining what's best for you.", "Searching...");
 
