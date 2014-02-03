@@ -87,6 +87,8 @@ public class TravelAgent {
 
             case SetDestination:
                 response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
+                Location l = new Location(savedInputs.get("destination"));
+                responseMaker.setLocation(l);
                 break;
 
             case CheckWeather:

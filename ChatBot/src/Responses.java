@@ -17,11 +17,11 @@ public final class Responses {
     public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
 
     public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit some ancient Mayan ruins at Chichen Itza",
-            "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "smoke some Cubans");
+            "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
 
     public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language in <Dest>, although some people do speak English","People in <Dest> speak Spanish.");
 
-    public static List<String> transport = Arrays.asList("Well people in . There are also government owned taxis.", "If you want to get between cities coach bus is the way to go.","We could help set you up with a rental car if you'd like.", "You should be able to walk to most places within the cities. Otherwise coach buses are a good choice.");
+    public static List<String> transport = Arrays.asList("Well people in <Dest> usually use buses. There are also government owned taxis.", "If you want to get between cities coach bus is the way to go.","We could help set you up with a rental car if you'd like.", "You should be able to walk to most places within the city. Otherwise coach buses are a good way to get around the country.");
 
     public static List<String> flightResponses = Arrays.asList("Yes, we have two direct flights to Cancun and numerous other flights that leave daily. ", "I can certainly help you with that. All our flights are direct to Mexico City.");
     
@@ -29,7 +29,7 @@ public final class Responses {
 
     public static List<String> niceAccom = Arrays.asList("You're too rich for our company.");
 
-    public static List<String> medAccom = Arrays.asList("We have a nice hotel in Havana with a pool and swim up bar. Only $105 per night.", "I suggest Hotel Deauville, a great view of the city with a rooftop pool!","Hotel Tulipan is one of our highest rated hotels. Right in the heart of Havana and only $95 a night.", "In Santa Lucia we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.");
+    public static List<String> medAccom = Arrays.asList("We have a nice hotel in Mexico City with a pool and swim up bar. Only $105 per night.", "I suggest BeachScape Kin Ha Villas. It just takes seconds to walk from your room to the beach!","Hotel Tulipan is one of our highest rated hotels. Right in the heart of Havana and only $95 a night.", "In Santa Lucia we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.");
 
     public static List<String> cheapAccom = Arrays.asList("Our top discount hotels Hotel Plaza and Hotel Tropicoco for $55 a night.","We've partnered with some great places. You might like Hotel Tropicoco, only $50, a night!", "One of our best reviewed hotels is Club Amigo Caracol in Santa Lucia. It should fit your budget.");
 
