@@ -102,7 +102,7 @@ public final class ResponseMaker {
         
         l = new Location(destination);
         
-        return Responses.getRandomResponse(Responses.niceDest, "<Dest>", location);
+        return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
     
     public String getTravelCost(String methodOfTravel){
