@@ -9,8 +9,8 @@ public class ParserDictionary {
     public static List<String> leave =     Arrays.asList("good night", "bye", "goodbye", "farewell", "see ya", "see you later", "take care", "ciao");
     public static List<String> comeBack =  Arrays.asList("please help", "come back", "please come back", "i need help", "that's rude");
 
-    public static List<String> dest =      Arrays.asList("cuba");
-    public static List<String> cities =      Arrays.asList("havana", "santiago de cuba", "santa lucia", "varadero");
+    public static List<String> dest =      Arrays.asList("Mexico");
+    public static List<String> cities =      Arrays.asList("Mexico City", "Tijuanna", "Juarez", "Cancun","Mexicali", "Chihuahua");
 
     public static List<String> thanks =      Arrays.asList("thanks", "thank you", "appreciated");
 
