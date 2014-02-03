@@ -54,7 +54,7 @@ public class TravelAgent {
             	response = responseMaker.getKeywordPlaces(savedInputs.get("keyword"));
 
             case ListCities:
-                response = responseMaker.getCities(savedInputs.get("destination"));
+                response = responseMaker.getCities();
                 break;
 
             // How the user wants to get to destination
@@ -65,7 +65,7 @@ public class TravelAgent {
                 break;
 
             case Distance:
-                response = responseMaker.getDistances(savedInputs.get("city")); //,savedInputs.get("city2"));
+                response = responseMaker.getDistances(savedInputs.get("city"),savedInputs.get("city2")); //,savedInputs.get("city2"));
                 break;
 
             case GetAround:

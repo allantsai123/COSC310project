@@ -4,9 +4,7 @@ public final class ResponseMaker {
     LocationFactory lf = new LocationFactory();
     Location l; // = new Location(); // we need a constructor somewhere. In the parser when the destination is received? Then pass to ResponseMaker for use later?
 
-    public ResponseMaker(){
-    	
-    }
+    public ResponseMaker(){}
     
     public ResponseMaker(Location l){
     	super();
@@ -37,7 +35,7 @@ public final class ResponseMaker {
         return "Okay, I'm back. What can I help with?";
     }
 
-    public String getCities(String place) {
+    public String getCities() {
         String cities = "Well, the biggest are ";
 
         for (String s : Responses.cities) {
@@ -63,7 +61,7 @@ public final class ResponseMaker {
     		response += Responses.getRandomResponse(Responses.boatResponses);
         	return response;
     	} else if (travelMethod == "fly" || travelMethod == "flight" || travelMethod == "plane"){
-    		String response = Responses.searching + "\n";
+    		String response = Responses.getRandomResponse(Responses.searching) + "\n";
     		response += Responses.getRandomResponse(Responses.flightResponses);
     		return response;
     	}
@@ -119,19 +117,17 @@ public final class ResponseMaker {
         return Responses.getRandomResponse(Responses.lang);
     }
 
-    public String getDistances(String city){   //1, String city2) {
+    public String getDistances(String city, String city2) {
         String response = Responses.getRandomResponse(Responses.searching);
 
-        // Modifies origin to set user origin/destination
-        // l.setOrigin(city);
-        l.setDestination(city);
-        //lf.locationMaker(city2);
-        // lf.setTransportMethod(parsedInput.getField("transport"); Have a method like this so we can change how to determine distances
-       
-        // Get distance between two cities and return.
-        response = "The distance between " + l.origin + " and " + city + " is " + l.distanceFromOrigin;
+        l.setOrigin(city);
+        l.setDestination(city2);
+
+        response = "The distance between " + l.origin + " and " + l.destination + " is " + l.distanceFromOrigin + " kilometers.";
         return response;
     }
+    
+    
 
     public String getDontKnow(ParsedInputType type) {
         if (type == ParsedInputType.DontUnderstand) {
@@ -171,7 +167,6 @@ public final class ResponseMaker {
         return paramText;
     }
 
-    // TODO test me
     private void checkAllParamsSubbed(String paramText) {
         int start = paramText.indexOf('<');
         int end = paramText.indexOf('>', start);
@@ -202,5 +197,4 @@ public final class ResponseMaker {
 	public String getSimpleYes() {
 		return Responses.getRandomResponse(Responses.simpleYes);
 		}
-
 }
