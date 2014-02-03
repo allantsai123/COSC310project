@@ -12,6 +12,10 @@ public final class Parser {
             parsedInput.type = ParsedInputType.None;
         } else if (userMsgLower.length() > MAX_SUPPORTED_MESSAGE_SIZE) {
             parsedInput.type = ParsedInputType.TooLong;
+        } else if (userMsgLower.compareTo("stats") == 0) {
+            parsedInput.type = ParsedInputType.Debug_ShowStats;
+        } else if (userMsgLower.compareTo("reset") == 0) {
+            parsedInput.type = ParsedInputType.Debug_Reset;
         } else {
             // Create the token collection
             parsedInput.tokenCollection.parse(userMessage);

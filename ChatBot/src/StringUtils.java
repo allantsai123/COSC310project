@@ -26,8 +26,11 @@ public final class StringUtils {
         String[] words = input.split(Regex.whitespace.pattern());
         String titleCased = "";
 
-        for (String word : words) {
-            titleCased += word.substring(0, 1).toUpperCase() + word.substring(1);
+        // First word
+        titleCased += words[0].substring(0, 1).toUpperCase() + words[0].substring(1);
+
+        for (int i = 1; i < words.length; i++) {
+            titleCased += " " + words[i].substring(0, 1).toUpperCase() + words[i].substring(1);
         }
 
         return titleCased;
