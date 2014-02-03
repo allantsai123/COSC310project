@@ -65,7 +65,7 @@ public class TravelAgent {
                 break;
 
             case Distance:
-                response = responseMaker.getDistances(savedInputs.get("city"),savedInputs.get("city2")); //,savedInputs.get("city2"));
+                response = responseMaker.getDistances(savedInputs.get("city"),savedInputs.get("city2"));
                 break;
 
             case GetAround:
@@ -82,11 +82,10 @@ public class TravelAgent {
                 break;
 
             case Language:
-                response = responseMaker.getLanguages();
+                response = responseMaker.getLanguages(savedInputs.get("destination"));
                 break;
 
             case SetDestination:
-                //destination = parsedInput.getField("destination");
                 response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
                 break;
 
@@ -121,12 +120,10 @@ public class TravelAgent {
         if (parsedInput.getType().isWellFormed()) {
             previousInputs.add(parsedInput);
         }
-
         return response;
     }
 
     private String greeting(ParsedInput parsedInput) {
-        // Either say hi or get snappy if greetings are repeated
         if (userHasGreeted) {
             return responseMaker.getGreetingRepeat();
         } else {

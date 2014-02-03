@@ -57,7 +57,7 @@ public final class ResponseMaker {
         if (travelMethod == "car" || travelMethod == "drive") {
             return "You can't drive to Cuba";
         } else if (travelMethod == "boat" || travelMethod == "cruise"){
-        	String response = Responses.searching + "\n";
+        	String response = Responses.getRandomResponse(Responses.searching) + "\n";
     		response += Responses.getRandomResponse(Responses.boatResponses);
         	return response;
     	} else if (travelMethod == "fly" || travelMethod == "flight" || travelMethod == "plane"){
@@ -113,8 +113,8 @@ public final class ResponseMaker {
     	}
     }
 
-    public String getLanguages() {
-        return Responses.getRandomResponse(Responses.lang);
+    public String getLanguages(String dest) {
+        return Responses.getRandomResponse(Responses.lang, "<Dest>", dest);
     }
 
     public String getDistances(String city, String city2) {
@@ -193,8 +193,7 @@ public final class ResponseMaker {
 	public String getSimpleNo() {
 		return Responses.getRandomResponse(Responses.simpleNo);
 	}
-
 	public String getSimpleYes() {
 		return Responses.getRandomResponse(Responses.simpleYes);
-		}
+	}
 }
