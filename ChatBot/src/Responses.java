@@ -25,13 +25,13 @@ public final class Responses {
 
     public static List<String> flightResponses = Arrays.asList("Yes, we have two direct flights to Cancun and numerous other flights that leave daily. ", "I can certainly help you with that. All our flights are direct to Mexico City.");
     
-    public static List<String> boatResponses = Arrays.asList("Sure, we are partnered with many different cruise lines.", "Of course! I've heard that it's one of the best places to go by boat.");
+    public static List<String> boatResponses = Arrays.asList("Sure, we are partnered with many different cruise lines.", "Of course! I've heard that it's one of the best places to for a cruise.", "Yes! The Maya Riviera is one of the most popular cruise destinations.");
 
-    public static List<String> niceAccom = Arrays.asList("You're too rich for our company.");
+    public static List<String> niceAccom = Arrays.asList("The Flamingo, in Cancun, is one of the top hotels in the country. Excellent all inclusive accomodations just minutes from downtown Cancun.", "The Fiesta Americana Condesa is a fantastic resort right on the white sandy beaches of Cancun. The resort is all inclusive!");
 
-    public static List<String> medAccom = Arrays.asList("We have a nice hotel in Mexico City with a pool and swim up bar. Only $105 per night.", "I suggest BeachScape Kin Ha Villas. It just takes seconds to walk from your room to the beach!","Hotel Tulipan is one of our highest rated hotels. Right in the heart of Havana and only $95 a night.", "In Santa Lucia we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.");
+    public static List<String> medAccom = Arrays.asList("We have a nice hotel in <Dest> with a pool and swim up bar. Only $105 per night.", "I suggest BeachScape Kin Ha Villas. It just takes seconds to walk from your room to the beach!","Hotel Tulipan is one of our highest rated hotels. Right in the heart of <Dest> and only $95 a night.", "In <Dest> we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.", "");
 
-    public static List<String> cheapAccom = Arrays.asList("Our top discount hotels Hotel Plaza and Hotel Tropicoco for $55 a night.","We've partnered with some great places. You might like Hotel Tropicoco, only $50, a night!", "One of our best reviewed hotels is Club Amigo Caracol in Santa Lucia. It should fit your budget.");
+    public static List<String> cheapAccom = Arrays.asList("Our top discount hotels in <Dest> are Hotel Plaza and Hotel Tropicoco. Only $55 a night.","We've partnered with some great places. You might like Hotel Tropicoco, only $50, a night!", "One of our best reviewed hotels is Club Amigo Caracol in <Dest>. It should fit your budget.");
 
     public static List<String> genAccom = Arrays.asList("We offer a wide variety of accomodations. Do you have a budget?",
             "We offer lots of different hotels. Do you have a price in mind?", "Were you interested in a family resort, or one of our luxury offerings?");

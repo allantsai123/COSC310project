@@ -36,7 +36,7 @@ public final class ParsedInput {
 
         for (String phrase : phrases) {
             // Pad with spaces to help avoid in string searches
-            String phrasePadded = " " + phrase + " ";
+            String phrasePadded = " " + phrase.toLowerCase() + " ";
 
             // Get maximum allowed edit distance based on FUZZY_ERROR_RATE
             allowedDistance = getAllowedDistance(userInputPadded, phrasePadded);
@@ -65,7 +65,7 @@ public final class ParsedInput {
 
         for (String phrase : phrases) {
             // Pad with spaces to help avoid in string searches
-            String phrasePadded = " " + phrase + " ";
+            String phrasePadded = " " + phrase.toLowerCase() + " ";
 
             // Get maximum allowed edit distance based on FUZZY_ERROR_RATE
             allowedDistance = getAllowedDistance(userInputPadded, phrasePadded);

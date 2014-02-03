@@ -73,15 +73,15 @@ public final class ResponseMaker {
         return Responses.getRandomResponse(Responses.genAccom);
     }
 
-    public String getBudgetAccom(int amount) {
+    public String getBudgetAccom(int amount, String location) {
         String response = "Searching for the best accomodations that match you budget. " + "\n";
 
         if (amount >= 130) {
-            response += " " + Responses.getRandomResponse(Responses.niceAccom);
+            response += " " + Responses.getRandomResponse(Responses.niceAccom, "<Dest>",location);
         } else if (amount > 90) {
-            response += " " + Responses.getRandomResponse(Responses.medAccom);
+            response += " " + Responses.getRandomResponse(Responses.medAccom, "<Dest>",location);
         } else {
-            response += " " + Responses.getRandomResponse(Responses.cheapAccom);
+            response += " " + Responses.getRandomResponse(Responses.cheapAccom, "<Dest>",location);
         }
         return response;
     }
@@ -99,8 +99,6 @@ public final class ResponseMaker {
         } else {
             destination = city + ", " + location;
         }
-        
-        l = new Location(destination);
         
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
@@ -155,22 +153,14 @@ public final class ResponseMaker {
                 ", or even " + Responses.getRandomResponse(Responses.activities);
     }
 
-    // TODO fix me
     private String substituteParameters(String paramText) {
-        // Substitute all dynamic values that don't depend on agent state
         paramText = paramText.replace("<TimeOfDay>", getTimeOfDay());
-        //  paramText = paramText.replace("<Username>", agent.getUsername());
-
-        // Make sure that all parameters were found
         checkAllParamsSubbed(paramText);
-
         return paramText;
     }
-
     private void checkAllParamsSubbed(String paramText) {
         int start = paramText.indexOf('<');
         int end = paramText.indexOf('>', start);
-
         if (start > 0 && end > start) {
             throw new RuntimeException("Failed to expand response parameter '" + paramText.substring(start, end) + "'");
         }

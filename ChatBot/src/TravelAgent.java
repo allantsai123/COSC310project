@@ -78,7 +78,7 @@ public class TravelAgent {
 
             case Budget:
                 int amount = Integer.valueOf(savedInputs.get("budget"));
-                response = responseMaker.getBudgetAccom(amount);
+                response = responseMaker.getBudgetAccom(amount,savedInputs.get("city"));
                 break;
 
             case Language:
