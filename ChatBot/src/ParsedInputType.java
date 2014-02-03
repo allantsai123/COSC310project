@@ -6,6 +6,7 @@ public enum ParsedInputType {
     Farewell,               //
     PleaseComeBack,         //
     Thanks,
+    GetKeyword,
     SetDestination,         //
     CheckWeather,           //
     Distance,

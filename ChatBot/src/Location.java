@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Location {
 	LocationFactory lf = new LocationFactory();
-	public HashMap<String,ArrayList> places = new HashMap();
+	public HashMap<String,ArrayList<String>> places = new HashMap<>();
 	public String origin = "kelowna, bc";
 	public String destination;
 	public double tempInCelcius;
@@ -26,6 +26,9 @@ public class Location {
 	public void setOrigin(String origin){
 		this.origin = origin;
 	}
+	public void setDestination(String destination){
+		this.destination=destination;
+	}
 	
 	public String estimateTravelCost(){
 		return "Flight to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin/2.02,2);
@@ -46,7 +49,7 @@ public class Location {
 	public String getPlaces(String keyword){
 		if (!places.containsKey(keyword)){
 			if (!lf.getPlaces(this, keyword))
-				return "I could not find any places for that keyword.";
+				return "I could not find any places for " + keyword;
 		} 
 		ArrayList<String> pl = places.get(keyword);
 		String returnString = "";

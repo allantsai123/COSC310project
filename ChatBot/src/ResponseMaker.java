@@ -2,8 +2,17 @@ import java.util.*;
 
 public final class ResponseMaker {
     LocationFactory lf = new LocationFactory();
-    Location l; //= new Location();
+    Location l; // = new Location(); // we need a constructor somewhere. In the parser when the destination is received? Then pass to ResponseMaker for use later?
 
+    public ResponseMaker(){
+    	
+    }
+    
+    public ResponseMaker(Location l){
+    	super();
+    	this.l = l;
+    }
+    
     public String getGreeting(String username) {
         if (StringUtils.isNullOrEmpty(username)) {
             return substituteParameters(Responses.getRandomResponse(Responses.greetings));
@@ -28,7 +37,7 @@ public final class ResponseMaker {
         return "Okay, I'm back. What can I help with?";
     }
 
-    public String getCities() {
+    public String getCities(String place) {
         String cities = "Well, the biggest are ";
 
         for (String s : Responses.cities) {
@@ -36,6 +45,10 @@ public final class ResponseMaker {
         }
         cities += ".";
         return cities;
+    }
+    
+    public String getKeywordPlaces(String keyword){
+    	return l.getPlaces(keyword);
     }
     
     public String getAround(){
@@ -88,24 +101,35 @@ public final class ResponseMaker {
         } else {
             destination = city + ", " + location;
         }
-
+        
+        l = new Location(destination);
+        
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", location);
+    }
+    
+    public String getTravelCost(String methodOfTravel){
+    	if(methodOfTravel == ""){
+    		return l.estimateTravelCost();
+    	} else {
+    		return l.estimateTravelCost(methodOfTravel);
+    	}
     }
 
     public String getLanguages() {
         return Responses.getRandomResponse(Responses.lang);
     }
 
-    public String getDistances(String city1, String city2) {
+    public String getDistances(String city){   //1, String city2) {
         String response = Responses.getRandomResponse(Responses.searching);
 
         // Modifies origin to set user origin/destination
-        l.setOrigin(city1);
+        // l.setOrigin(city);
+        l.setDestination(city);
         //lf.locationMaker(city2);
         // lf.setTransportMethod(parsedInput.getField("transport"); Have a method like this so we can change how to determine distances
        
         // Get distance between two cities and return.
-        response = "The distance between " + city1 + " and " + city2 + " is " + l.distanceFromOrigin;
+        response = "The distance between " + l.origin + " and " + city + " is " + l.distanceFromOrigin;
         return response;
     }
 
@@ -117,14 +141,17 @@ public final class ResponseMaker {
         return "I really don't know...";
     }
 
-    public String getWeather(String location) {
-        if (StringUtils.isNullOrEmpty(location)) {
+    public String getWeather(String destination) {
+    	assert destination != null;
+    	
+        if (StringUtils.isNullOrEmpty(destination)) {
             return "I need to know a place to help you with that.";
         }
-
-        l.setOrigin(location);
+        
+        l = new Location(destination);
+        l.setDestination(destination);
         //lf.locationMaker(location);
-        return "It is currently " + l.tempInCelcius + " degrees C in " + location;
+        return "It is currently " + l.tempInCelcius + " degrees C in " + destination;
     }
 
     public String getActivities() {

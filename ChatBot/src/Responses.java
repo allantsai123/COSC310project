@@ -14,7 +14,7 @@ public final class Responses {
 
 
     public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit the museum of Che Guevara",
-            "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins");
+            "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "smoke some Cubans");
 
     public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language, although some people do speak English",
             "People in Cuba speak Spanish.");

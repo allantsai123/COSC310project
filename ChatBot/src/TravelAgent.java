@@ -49,21 +49,24 @@ public class TravelAgent {
             case Activity:
                 response = responseMaker.getActivities();
                 break;
+                
+            case GetKeyword:
+            	response = responseMaker.getKeywordPlaces(savedInputs.get("keyword"));
 
             case ListCities:
-                response = responseMaker.getCities();
+                response = responseMaker.getCities(savedInputs.get("destination"));
                 break;
 
             // How the user wants to get to destination
             case TravelMethod:
                // String transport = parsedInput.getField("travel method");
                 response = responseMaker.getTravelMethod(savedInputs.get("travel method"));
+                response = responseMaker.getTravelCost(savedInputs.get("travel method"));
                 break;
 
             case Distance:
-                response = responseMaker.getDistances(savedInputs.get("city"),savedInputs.get("city2"));
+                response = responseMaker.getDistances(savedInputs.get("city")); //,savedInputs.get("city2"));
                 break;
-
 
             case GetAround:
             	response = responseMaker.getAround();
