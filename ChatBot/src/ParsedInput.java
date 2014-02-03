@@ -24,9 +24,41 @@ public final class ParsedInput {
         return (int) Math.round(FUZZY_ERROR_RATE * (double) smallerLength);
     }
 
-    public String getMatchingPhrase(List<String> phrases) {
+    public List<String> getMatchingPhrases(List<String> phrases) {
+        return getMatchingPhrases(phrases, tokenCollection.getStrippedInput());
+    }
+
+    public List<String> getMatchingPhrases(List<String> phrases, String userInput) {
         // Pad with spaces to help avoid in string searches
-        String userInputPadded = " " + tokenCollection.getStrippedInput() + " ";
+        String userInputPadded = " " + userInput + " ";
+        List<String> matches = new ArrayList<>();
+        int allowedDistance = 0;
+
+        for (String phrase : phrases) {
+            // Pad with spaces to help avoid in string searches
+            String phrasePadded = " " + phrase + " ";
+
+            // Get maximum allowed edit distance based on FUZZY_ERROR_RATE
+            allowedDistance = getAllowedDistance(userInputPadded, phrasePadded);
+
+            // Run the fuzzy substring matcher
+            FuzzySubstringResults result = FuzzyMatching.Substring(userInputPadded, phrasePadded);
+
+            if (result.levenshteinDistance <= allowedDistance) { // Input contains a close-enough recognized phrase
+                matches.add(phrase);
+            }
+        }
+
+        return matches;
+    }
+
+    public String getMatchingPhrase(List<String> phrases) {
+        return getMatchingPhrase(phrases, tokenCollection.getStrippedInput());
+    }
+
+    public String getMatchingPhrase(List<String> phrases, String userInput) {
+        // Pad with spaces to help avoid in string searches
+        String userInputPadded = " " + userInput + " ";
         double bestSimilarity = 0;
         String bestPhrase = "";
         int allowedDistance = 0;
@@ -41,7 +73,8 @@ public final class ParsedInput {
             // Run the fuzzy substring matcher
             FuzzySubstringResults result = FuzzyMatching.Substring(userInputPadded, phrasePadded);
 
-           // IORW.writeLine("DEBUG -- dist: " + result.levenshteinDistance + ", allowed: " + allowedDistance + ",  with: '" + phrase + "' at: " + result.indexOfEndOfMatch + " rank: " + Math.round(result.similarity));
+            //IORW.writeLine(phrasePadded + " -- " + userInputPadded);
+            //IORW.writeLine("DEBUG -- dist: " + result.levenshteinDistance + ", allowed: " + allowedDistance + ",  with: '" + phrase + "' at: " + result.indexOfEndOfMatch + " rank: " + Math.round(result.similarity));
 
             if (result.levenshteinDistance <= allowedDistance) { // Input contains a close-enough recognized phrase
                 if (result.similarity > bestSimilarity) {
@@ -61,10 +94,10 @@ public final class ParsedInput {
     }
 
     public boolean containsAnyPhrase(List<String> phrases) {
-       if (!getMatchingPhrase(phrases).isEmpty()) {
-           return true;
-       } else {
-           return false;
-       }
+        if (!getMatchingPhrase(phrases).isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

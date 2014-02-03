@@ -5,15 +5,16 @@ public enum ParsedInputType {
     Greeting,               //
     Farewell,               //
     PleaseComeBack,         //
-
+    Thanks,
     SetDestination,         //
     CheckWeather,           //
+    Distance,
     Activity,               //
     Accomodations,
     TravelMethod,           //
     GetAround,			//  
     Language,               //
-    City,                   //  For distances
+    ListCities,                   //  For distances
     Dates,                  //   
     Budget,                 //  amount affordable for hotels
     

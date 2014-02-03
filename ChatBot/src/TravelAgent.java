@@ -5,8 +5,7 @@ public class TravelAgent {
 
     // Agent state
     private ArrayList<ParsedInput> previousInputs = new ArrayList<>();
-    private String username;
-    private String destination;
+    public HashMap<String, String> savedInputs = new HashMap<>();
     private boolean userHasGreeted = false;
     private boolean userHasSaidFarewell = false;
 
@@ -25,6 +24,9 @@ public class TravelAgent {
         if (userHasSaidFarewell && (parsedInput.getType() != ParsedInputType.PleaseComeBack)) {
             return Responses.getRandomResponse(Responses.sorrybusys);
         }
+
+        // Save all user entered variables
+        savedInputs.putAll(parsedInput.inputs);
 
         // Check which kind of question or statement the user inputted
         switch (parsedInput.getType()) {
@@ -48,25 +50,31 @@ public class TravelAgent {
                 response = responseMaker.getActivities();
                 break;
 
-            case City:
+            case ListCities:
                 response = responseMaker.getCities();
                 break;
 
             // How the user wants to get to destination
             case TravelMethod:
-                String transport = parsedInput.getField("travel method");
-                response = responseMaker.getTravelMethod(transport);
+               // String transport = parsedInput.getField("travel method");
+                response = responseMaker.getTravelMethod(savedInputs.get("travel method"));
                 break;
-                
+
+            case Distance:
+                response = responseMaker.getDistances(savedInputs.get("city"),savedInputs.get("city2"));
+                break;
+
+
             case GetAround:
             	response = responseMaker.getAround();
+                break;
 
             case Accomodations:
                 response = responseMaker.getGenAccomodation();
                 break;
 
             case Budget:
-                int amount = Integer.valueOf(parsedInput.getField("budget"));
+                int amount = Integer.valueOf(savedInputs.get("budget"));
                 response = responseMaker.getBudgetAccom(amount);
                 break;
 
@@ -75,12 +83,12 @@ public class TravelAgent {
                 break;
 
             case SetDestination:
-                destination = parsedInput.getField("destination");
-                response = responseMaker.getDestinationInfo(destination);
+                //destination = parsedInput.getField("destination");
+                response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
                 break;
 
             case CheckWeather:
-                response = checkWeather(parsedInput);
+                response = responseMaker.getWeather(savedInputs.get("destination"));
                 break;
                 
             case SimpleYes:
@@ -98,7 +106,8 @@ public class TravelAgent {
             case None:
             default:
                 response = "...";
-                
+                break;
+
             case Debug_Reset:
                 resetState();
                 response = "State reset.";
@@ -114,46 +123,21 @@ public class TravelAgent {
     }
 
     private String greeting(ParsedInput parsedInput) {
-        // Set username if given
-        String name = parsedInput.getField("username");
-        if (!StringUtils.isNullOrEmpty(name)) this.username = name;
-
         // Either say hi or get snappy if greetings are repeated
         if (userHasGreeted) {
             return responseMaker.getGreetingRepeat();
         } else {
             userHasGreeted = true;
-            return responseMaker.getGreeting(username);
+            return responseMaker.getGreeting(savedInputs.get("username"));
         }
     }
 
     private String farewell(ParsedInput parsedInput) {
         userHasSaidFarewell = true;
-        return responseMaker.getFarewell(username);
+        return responseMaker.getFarewell(savedInputs.get("username"));
     }
     private String pleaseComeBack(ParsedInput parsedInput) {
         userHasSaidFarewell = false;
         return responseMaker.getImBack();
-    }
-
-    private String checkWeather(ParsedInput parsedInput) {
-        String destination = parsedInput.getField("destination");
-
-        if (StringUtils.isNullOrEmpty(destination)) {
-            // If user does not supply location, use a previously set one
-            destination = this.destination;
-        } else {
-            // Save this location if user has not set one
-            if (StringUtils.isNullOrEmpty(this.destination)) this.destination = destination;
-        }
-        return responseMaker.getWeather(destination);
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getDestination() {
-        return destination;
     }
 }

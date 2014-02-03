@@ -19,9 +19,11 @@ public final class Parser {
             // In order, check for
             parseGreetingOrFarewell(parsedInput);
             parsePleaseComeBack(parsedInput);
+            parseThanks(parsedInput);
             parseDestination(parsedInput);
             parseWeather(parsedInput);
-            parseCity(parsedInput);
+            parseTravelMethod(parsedInput);
+            parseHowFar(parsedInput);
 
             // parse(parsedInput);
             // parse(parsedInput);
@@ -37,11 +39,11 @@ public final class Parser {
     private static void parseGreetingOrFarewell(ParsedInput parsedInput) {
         // Check for greetings and farewells
 
-      if (parsedInput.containsAnyPhrase(ParserDictionary.greet)) {
-          parsedInput.type = ParsedInputType.Greeting;
-      } else if (parsedInput.containsAnyPhrase(ParserDictionary.leave)) {
-          parsedInput.type = ParsedInputType.Farewell;
-      }
+        if (parsedInput.containsAnyPhrase(ParserDictionary.greet)) {
+            parsedInput.type = ParsedInputType.Greeting;
+        } else if (parsedInput.containsAnyPhrase(ParserDictionary.leave)) {
+            parsedInput.type = ParsedInputType.Farewell;
+        }
 
         // Check for user telling their name
 //        if (parsedInput.getOrigMsg().contains("im dave")) {
@@ -56,12 +58,25 @@ public final class Parser {
         }
     }
 
+    private static void parseThanks(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.thanks)) {
+            parsedInput.type = ParsedInputType.Thanks;
+        }
+    }
+
     private static void parseDestination(ParsedInput parsedInput) {
         String match = parsedInput.getMatchingPhrase(ParserDictionary.dest);
 
         if (!match.isEmpty()) {
             parsedInput.type = ParsedInputType.SetDestination;
-            parsedInput.setField("destination", match);
+            parsedInput.setField("destination", StringUtils.toTitleCase(match));
+        }
+
+        String city = parsedInput.getMatchingPhrase(ParserDictionary.cities);
+
+        if (!city.isEmpty()) {
+            parsedInput.type = ParsedInputType.SetDestination;
+            parsedInput.setField("city", StringUtils.toTitleCase(city));
         }
     }
 
@@ -71,14 +86,29 @@ public final class Parser {
         }
     }
 
-    private static void parseCity(ParsedInput parsedInput) {
-        String match = parsedInput.getMatchingPhrase(ParserDictionary.city);
-
-        // TODO add city to destination so we get ex: Havana, Cuba
+    private static void parseTravelMethod(ParsedInput parsedInput) {
+        String match = parsedInput.getMatchingPhrase(ParserDictionary.travelMethods);
 
         if (!match.isEmpty()) {
-            parsedInput.type = ParsedInputType.City;
-            parsedInput.setField("city", match);
+            parsedInput.type = ParsedInputType.TravelMethod;
+            parsedInput.setField("travel method", match);
+        }
+    }
+
+    private static void parseHowFar(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.distance)) {
+            parsedInput.type = ParsedInputType.Distance;
+
+            List<String> matches = parsedInput.getMatchingPhrases(ParserDictionary.cities);
+
+            if (matches.size() == 0) {
+                // No cities given
+            } else if (matches.size() == 1) {
+                parsedInput.setField("city2", matches.get(0));
+            } else {
+                parsedInput.setField("city", matches.get(0));
+                parsedInput.setField("city2", matches.get(1));
+            }
         }
     }
 }

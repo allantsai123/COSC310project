@@ -2,7 +2,7 @@ import java.util.*;
 
 public final class ResponseMaker {
     LocationFactory lf = new LocationFactory();
-    Location l = new Location();
+    Location l; //= new Location();
 
     public String getGreeting(String username) {
         if (StringUtils.isNullOrEmpty(username)) {
@@ -75,14 +75,21 @@ public final class ResponseMaker {
         return response;
     }
 
-    public String getDestinationInfo(String location) {
-        if (StringUtils.isNullOrEmpty(location)) {
+    public String getDestinationInfo(String location, String city) {
+        String destination = "";
+
+        if (StringUtils.isNullOrEmpty(location) && StringUtils.isNullOrEmpty(city)) {
             return "Sorry you need to say where you want to go!";
-        } else if (!Responses.locations.contains(location.toLowerCase())) {
-            return "Sorry, we don't do trips to " + location;
+        } else if (!StringUtils.isNullOrEmpty(location) && StringUtils.isNullOrEmpty(city)) {
+            destination = location;
+            return Responses.getRandomResponse(Responses.niceDest, "<Dest>", location) + " Where would you like to go in " + location + "?";
+        } else if (StringUtils.isNullOrEmpty(location) && !StringUtils.isNullOrEmpty(city)) {
+            destination = city;
+        } else {
+            destination = city + ", " + location;
         }
 
-        return location + " is very nice! Where would you like to go in " + location;
+        return Responses.getRandomResponse(Responses.niceDest, "<Dest>", location);
     }
 
     public String getLanguages() {
@@ -91,10 +98,10 @@ public final class ResponseMaker {
 
     public String getDistances(String city1, String city2) {
         String response = Responses.getRandomResponse(Responses.searching);
-        
+
         // Modifies origin to set user origin/destination
         l.setOrigin(city1);
-        lf.locationMaker(city2);
+        //lf.locationMaker(city2);
         // lf.setTransportMethod(parsedInput.getField("transport"); Have a method like this so we can change how to determine distances
        
         // Get distance between two cities and return.
@@ -116,7 +123,7 @@ public final class ResponseMaker {
         }
 
         l.setOrigin(location);
-        lf.locationMaker(location);
+        //lf.locationMaker(location);
         return "It is currently " + l.tempInCelcius + " degrees C in " + location;
     }
 

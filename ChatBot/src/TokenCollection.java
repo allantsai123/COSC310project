@@ -35,19 +35,19 @@ public final class TokenCollection {
     public void parse(String originalInput) {
         this.originalInput = originalInput;
         lowercaseInput = originalInput.toLowerCase();
-        strippedInput = stripPunctuationAndSquashWhitespace(lowercaseInput);
+        strippedInput = stripPunctuationSquashWhitespace(lowercaseInput);
 
         tokens = tokenize(strippedInput);
         words = parseWords(strippedInput);
         numbers = parseNumbers(strippedInput);
     }
 
-    private static String stripPunctuationAndSquashWhitespace(String input) {
+    private static String stripPunctuationSquashWhitespace(String input) {
         // Removes most punctuation, leaves $ - + ' , . ?
-        String stripped = Regex.mostPunctuation.matcher(input).replaceAll(" ");
+        String stripped = input.replaceAll(Regex.mostPunctuation.pattern(), "");
 
         // Squashes multiple whitespace into a single space
-        String squashed = Regex.whitespace.matcher(input).replaceAll(" ");
+        String squashed = Regex.whitespace.matcher(stripped).replaceAll(" ");
 
         return squashed;
     }

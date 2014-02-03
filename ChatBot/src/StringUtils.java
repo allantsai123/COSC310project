@@ -19,4 +19,17 @@ public final class StringUtils {
 
         return containsValue;
     }
+
+    public static String toTitleCase(String input) {
+        if (input.length() == 0) return "";
+
+        String[] words = input.split(Regex.whitespace.pattern());
+        String titleCased = "";
+
+        for (String word : words) {
+            titleCased += word.substring(0, 1).toUpperCase() + word.substring(1);
+        }
+
+        return titleCased;
+    }
 }

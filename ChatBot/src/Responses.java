@@ -10,6 +10,9 @@ public final class Responses {
     public static List<String> locations = Arrays.asList("cuba");
     public static List<String> cities = Arrays.asList("Havana", "Santiago de Cuba", "Santa Lucia", "Varadero");
 
+    public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
+
+
     public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit the museum of Che Guevara",
             "see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins");
 
@@ -22,8 +25,8 @@ public final class Responses {
     //
     public static List<String> flightResponses = Arrays.asList("Yes, we have numerous flights that leave daily.", "I can certainly help you with that. All our flights are direct to Havana.");
     public static List<String> boatResponses = Arrays.asList("Sure, we are partnered with many different cruise lines.", "Of course! I've heard that it's one of the best places to go by boat.");
-    public static List<String> allowedMethod = Arrays.asList("fly","flight","plane","boat","cruise");
-    
+
+
     public static List<String> niceAccom = Arrays.asList("You're too rich for our company.");
     public static List<String> medAccom = Arrays.asList("We have a nice hotel in Havana with a pool and swim up bar. Only $105 per night.", "I suggest Hotel Deauville, a great view of the city with a rooftop pool!",
             "Hotel Tulipan is one of our highest rated hotels. Right in the heart of Havana and only $95 a night.", "In Santa Lucia we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.");
@@ -42,6 +45,10 @@ public final class Responses {
     public static List<String> simpleNo = Arrays.asList("No.", "That's not possible", "Sorry, I can't help with that.");
 
     public static List<String> dontKnow = Arrays.asList("I do not know the answer to that.");
+
+    public static String getRandomResponse(List<String> responses, String keyword, String value) {
+        return responses.get(rand.nextInt(responses.size())).replace(keyword, value);
+    }
 
     public static String getRandomResponse(List<String> responses) {
         return responses.get(rand.nextInt(responses.size()));

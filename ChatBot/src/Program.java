@@ -6,6 +6,10 @@ public final class Program {
 
     public static void main(String[] args) {
         readArguments(args);
+
+        //IORW.writeLine(FuzzyMatching.EditDistance("sitting", "kitten"));
+        //IORW.writeLine("an = " + FuzzyMatching.Substring(" c abba c", "aba").levenshteinDistance);
+
         startBot();
     }
 
@@ -112,7 +116,7 @@ public final class Program {
     private static void writeFromBot(String message) {
         // We want to display the username if it's available
         String user = "User";
-        if (!StringUtils.isNullOrEmpty(agent.getUsername())) user = agent.getUsername();
+        if (!StringUtils.isNullOrEmpty(agent.savedInputs.get("username"))) user = agent.savedInputs.get("username");
 
         // Write out our response with header & footer
         IORW.writeLine("\r\n" + botName + ":\r\n" + message + "\r\n\r\n" + user + ":");
