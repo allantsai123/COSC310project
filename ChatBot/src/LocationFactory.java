@@ -19,6 +19,7 @@ public class LocationFactory {
 //		setWeather(loc);
 		setDistance(loc);
 		getPlaces(loc,"food");
+		getPlaces(loc,"lodging");
 	}
 	/**
 	 * @param args

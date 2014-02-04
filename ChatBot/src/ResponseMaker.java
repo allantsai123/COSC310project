@@ -14,6 +14,7 @@ public final class ResponseMaker {
     public String getGreeting(String username) {
         if (StringUtils.isNullOrEmpty(username)) {
             return substituteParameters(Responses.getRandomResponse(Responses.greetings));
+           
         } else {
             return substituteParameters(Responses.getRandomResponse(Responses.greetings)) + " " + username;
         }
@@ -55,7 +56,7 @@ public final class ResponseMaker {
 
     public String getTravelMethod(String travelMethod) {
         if (travelMethod == "car" || travelMethod == "drive") {
-            return "You can't drive to Cuba";
+            return "You can if you want to.";
         } else if (travelMethod == "boat" || travelMethod == "cruise"){
         	String response = Responses.getRandomResponse(Responses.searching) + "\n";
     		response += Responses.getRandomResponse(Responses.boatResponses);
@@ -83,6 +84,8 @@ public final class ResponseMaker {
         } else {
             response += " " + Responses.getRandomResponse(Responses.cheapAccom, "<Dest>",location);
         }
+        
+        l.places.get("lodging");
         return response;
     }
 
@@ -99,8 +102,8 @@ public final class ResponseMaker {
         } else {
             destination = city + ", " + location;
         }
-        l = new Location(location);
-        
+        l = new Location(destination);
+    	System.out.println(l.getPlaces("lodging"));
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
     
