@@ -71,8 +71,8 @@ public class TravelAgent {
             // How the user wants to get to destination
             case TravelMethod:
                 // String transport = parsedInput.getField("travel method");
-                response = responseMaker.getTravelMethod(savedInputs.get("travel method"));
-                response = responseMaker.getTravelCost(savedInputs.get("travel method"));
+                response = responseMaker.getTravelMethod(savedInputs.get("travel method"), savedInputs.get("city"));
+//                response = responseMaker.getTravelCost(savedInputs.get("travel method"));
                 break;
 
             case Distance:

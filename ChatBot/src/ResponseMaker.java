@@ -58,16 +58,16 @@ public final class ResponseMaker {
     	return Responses.getRandomResponse(Responses.transport);
     }
 
-    public String getTravelMethod(String travelMethod) {
+    public String getTravelMethod(String travelMethod, String location) {
         if (travelMethod == "car" || travelMethod == "drive") {
             return "You can if you want to.";
         } else if (travelMethod == "boat" || travelMethod == "cruise"){
         	String response = Responses.getRandomResponse(Responses.searching) + "\n";
-    		response += Responses.getRandomResponse(Responses.boatResponses);
+    		response += Responses.getRandomResponse(Responses.boatResponses, "<Dest>",location);
         	return response;
     	} else if (travelMethod == "fly" || travelMethod == "flight" || travelMethod == "plane"){
     		String response = Responses.getRandomResponse(Responses.searching) + "\n";
-    		response += Responses.getRandomResponse(Responses.flightResponses);
+    		response += Responses.getRandomResponse(Responses.flightResponses, "<Dest>",location);
     		return response;
     	}
         
