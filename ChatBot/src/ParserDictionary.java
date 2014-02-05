@@ -10,7 +10,7 @@ public class ParserDictionary {
     public static List<String> comeBack =  Arrays.asList("please help", "come back", "please come back", "i need help", "that's rude");
 
     public static List<String> dest =      Arrays.asList("Mexico");
-    public static List<String> cities =      Arrays.asList("Mexico City", "Calgary", "Tijuanna", "Juarez", "Cancun","Mexicali", "Chihuahua", "Kelowna");
+    public static List<String> cities =      Arrays.asList("Mexico City", "Calgary", "Tijuana", "Juarez", "Cancun","Mexicali", "Chihuahua", "Kelowna");
 
     public static List<String> thanks =      Arrays.asList("thanks", "thank you", "appreciated");
 
@@ -18,6 +18,7 @@ public class ParserDictionary {
     //public static List<String> travel =    Arrays.asList("car", "plane", "cruise", "bus");
 
     public static List<String> distance =  Arrays.asList("far", "long", "distance");
+    public static List<String> food = Arrays.asList("eat","food","restaurant","dine","lunch","dinner","bar");
 
     public static List<String> bookInfo =  Arrays.asList("passport", "reservation", "book", "booking");
     public static List<String> lang =      Arrays.asList("english", "spanish", "french");

@@ -85,13 +85,16 @@ public final class ResponseMaker {
             response += " " + Responses.getRandomResponse(Responses.cheapAccom, "<Dest>",location);
         }
         
-//        l.places.get("lodging");
         return response;
     }
     
     public String getLocalFood(){
     	String response = Responses.getRandomResponse(Responses.searching) + "\n";
-    	response += l.getPlaces("food");
+    	if(l.getPlaces("food") == "I could not find any places for food"){
+    		response += "";
+    	} else {
+    		response += l.getPlaces("food");
+    	}
     	return response;
     }
 
@@ -153,7 +156,7 @@ public final class ResponseMaker {
         
         l.setDestination(destination);
         lf.build(l);
-        return "It is currently " + temp + " degrees C in " + l.destination;
+        return "It is currently " + l.tempInCelcius + " degrees C in " + l.destination;
     }
 
     public String getActivities() {

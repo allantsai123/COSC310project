@@ -10,23 +10,25 @@ public final class Responses {
     
     public static List<String> sorrybusys = Arrays.asList("I've moved on to helping someone else.", "Sorry, I'm busy now.", "I'm busy, try again later");
 
-    public static List<String> locations = Arrays.asList("mexico");
+    public static List<String> locations = Arrays.asList("Mexico");
     
-    public static List<String> cities = Arrays.asList("Mexico City", "Tijuanna", "Juarez", "Cancun","Mexicali", "Chihuahua");
+    public static List<String> noRestaurants = Arrays.asList("There aren't any places that I'd recommend.", "There may be some local places, but nothing outstanding.", "It's all about street vendors and local food there.");
+    
+    public static List<String> cities = Arrays.asList("Mexico City", "Tijuana", "Juarez", "Cancun","Mexicali", "Chihuahua");
 
     public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
 
-    public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit some ancient Mayan ruins at Chichen Itza","see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
+    public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit some ancient Mayan ruins","see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
 
     public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language in <Dest>, although some people do speak English","People in <Dest> speak Spanish.");
 
     public static List<String> transport = Arrays.asList("Well people in <Dest> usually use buses. There are also government owned taxis.", "If you want to get between cities coach bus is the way to go.","We could help set you up with a rental car if you'd like.", "You should be able to walk to most places within the city. Otherwise coach buses are a good way to get around the country.");
 
-    public static List<String> flightResponses = Arrays.asList("Yes, we have two direct flights to Cancun and numerous other flights that leave daily. ", "I can certainly help you with that. All our flights are direct to Mexico City.");
+    public static List<String> flightResponses = Arrays.asList("Yes, we have two direct flights to <Dest> and numerous other flights that leave daily. ", "I can certainly help you with that. All our flights are direct to <Dest>.");
     
     public static List<String> boatResponses = Arrays.asList("Sure, we are partnered with many different cruise lines.", "Of course! I've heard that it's one of the best places to for a cruise.", "Yes! The Maya Riviera is one of the most popular cruise destinations.");
 
-    public static List<String> niceAccom = Arrays.asList("The Flamingo, in Cancun, is one of the top hotels in the country. Excellent all inclusive accomodations just minutes from downtown Cancun.", "The Fiesta Americana Condesa is a fantastic resort right on the white sandy beaches of Cancun. The resort is all inclusive!");
+    public static List<String> niceAccom = Arrays.asList("The Flamingo, in <Dest>, is one of the top hotels in the country. Excellent all inclusive accomodations just minutes from downtown <Dest>.", "The Fiesta Americana Condesa is a fantastic resort right on the white sandy beaches of <Dest>. The resort is all inclusive!");
 
     public static List<String> medAccom = Arrays.asList("We have a nice hotel in <Dest> with a pool and swim up bar. Only $105 per night.", "I suggest BeachScape Kin Ha Villas. It just takes seconds to walk from your room to the beach!","Hotel Tulipan is one of our highest rated hotels. Right in the heart of <Dest> and only $95 a night.", "In <Dest> we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.", "");
 
