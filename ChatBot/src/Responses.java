@@ -1,7 +1,7 @@
 import java.util.*;
 
 public final class Responses {
-    
+
 	private static java.util.Random rand = new java.util.Random();
 
     public static List<String> greetings = Arrays.asList("Good <TimeOfDay>, I'm Travel Bot. How can I help?", "Hi, how can I help?", "Hello. Can I help you plan a trip?", "Hey", "Greetings", "Welcome to our travel center. How can I help?");
@@ -41,6 +41,8 @@ public final class Responses {
     public static List<String> simpleNo = Arrays.asList("No.", "That's not possible", "Sorry, I can't help with that.");
 
     public static List<String> dontKnow = Arrays.asList("I do not know the answer to that.");
+
+    public static List<String> youreWelcome = Arrays.asList("No problem.", "You're welcome.", "Of course, anytime.", "My pleasure.");
 
     public static String getRandomResponse(List<String> responses, String keyword, String value) {
         return responses.get(rand.nextInt(responses.size())).replace(keyword, value);

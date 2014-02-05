@@ -10,7 +10,7 @@ public final class IORW {
     private static PrintStream outputStream = System.out;
     private static boolean writeToSystemOut = false;
     private static boolean forwardInputToOutput = false;
-    private static boolean debugOn = false;
+    static boolean debugOn = false;
 
     public static void setInputFile(String inputFilePath, boolean forwardInputToOutput) throws IOException {
         inputScanner = new Scanner(Paths.get(inputFilePath));

@@ -8,7 +8,7 @@ public final class Regex {
     public static Pattern anyNum = Pattern.compile("[+-]?(\\d{1,3}(,\\d{3})+\\.\\d*|\\d{1,3}(,\\d{3})+|\\d*\\.\\d*|\\d*)");
     public static Pattern integerNums = Pattern.compile("[+-]?(\\d{1,3}(,\\d{3})+|\\d+)");
     public static Pattern currencyNums = Pattern.compile("\\$?[+-]?(\\d{1,3}(,\\d{3})+\\.\\d*|\\d{1,3}(,\\d{3})+|\\d*\\.\\d*|\\d*)");
-    public static Pattern mostPunctuation = Pattern.compile("\\~*+`*+\\!*+\\@*+\\#*+\\%*+\\^*+\\&*+\\**+\\(*+\\)*+\\_*+\\=*+\\{*+\\}*+\\[*+\\]*+\\|*+\\\\*+\\:*+\\;*+\\\"*+<*+>*+"); // doesn't include $ - + ' , . ?
+    public static Pattern mostPunctuation = Pattern.compile("\\~*+`*+\\!*+\\@*+\\#*+\\%*+\\^*+\\&*+\\**+\\(*+\\)*+\\_*+\\=*+\\{*+\\}*+\\[*+\\]*+\\|*+\\\\*+\\:*+\\;*+\\\"*+<*+>*+\\?*+\\.*+"); // doesn't include $ - + ' ,
     public static Pattern whitespace = Pattern.compile("\\s+");
 
     public static String getFirstMatch(Pattern pattern, String input) {
@@ -25,8 +25,10 @@ public final class Regex {
         List<String> allMatches = new ArrayList<String>();
         Matcher matcher = pattern.matcher(input);
 
+        String tmp = "";
         while (matcher.find()) {
-            allMatches.add(matcher.group());
+            tmp = matcher.group().trim();
+            if (!tmp.isEmpty()) allMatches.add(matcher.group());
         }
 
         return allMatches;

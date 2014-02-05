@@ -5,7 +5,6 @@ Tijuanna then.
 How far is it?
 Ok. Can I drive to Tijuanna?
 How about fly?
-
 Ok. Can you book me a hotel too?
 Yeah, I can afford $100 a night.
 Ok I'll take that. Can I cancel my reservation if I need to?
@@ -14,6 +13,4 @@ What is there to do while in Mexico?
 How far is it from Tijuanna to Mexico City?
 What is the weather like in Tijuanna?
 Ok. And I should bring my passport as well?
-
-
 Great, thanks! Goodbye.
