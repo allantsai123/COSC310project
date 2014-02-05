@@ -11,6 +11,7 @@ public enum ParsedInputType {
     CheckWeather,           //
     Distance,
     Activity,               //
+    Food,					// Just added food case for more dialogue if possible.
     Accomodations,
     TravelMethod,           //
     GetAround,			//  
@@ -24,6 +25,7 @@ public enum ParsedInputType {
 
     Debug_Reset,
     Debug_ShowStats;
+    
 
     public boolean isWellFormed() {
         return (this != ParsedInputType.None) &&

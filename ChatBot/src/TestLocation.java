@@ -9,11 +9,12 @@ public class TestLocation {
      */
     public static void main(String[] args) {
 
-    	Location loc = new Location("Calgary");
+    	Location loc = new Location("Mexico City");
     	
 
      
         System.out.println(loc.getPlaces("food"));
+        System.out.println(loc.getPlaces("lodging"));
         
 
 

@@ -44,6 +44,10 @@ public class TravelAgent {
             case Greeting:
                 response = greeting(parsedInput);
                 break;
+                
+            case Food:
+            	response = responseMaker.getLocalFood();
+            	break;
 
             case Farewell:
                 response = farewell(parsedInput);

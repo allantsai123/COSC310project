@@ -85,8 +85,14 @@ public final class ResponseMaker {
             response += " " + Responses.getRandomResponse(Responses.cheapAccom, "<Dest>",location);
         }
         
-        l.places.get("lodging");
+//        l.places.get("lodging");
         return response;
+    }
+    
+    public String getLocalFood(){
+    	String response = Responses.getRandomResponse(Responses.searching) + "\n";
+    	response += l.getPlaces("food");
+    	return response;
     }
 
     public String getDestinationInfo(String location, String city) {
@@ -103,7 +109,6 @@ public final class ResponseMaker {
             destination = city + ", " + location;
         }
         l = new Location(destination);
-    	System.out.println(l.getPlaces("lodging"));
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
     
