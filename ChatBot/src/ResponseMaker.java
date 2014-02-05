@@ -116,10 +116,7 @@ public final class ResponseMaker {
             destination = city + ", " + location;
         }
         l = new Location(destination);
-<<<<<<< HEAD
-=======
     	//System.out.println(l.getPlaces("lodging"));
->>>>>>> 479be4433c6592d25d6bbbf7b01d36f42dffefa6
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
     

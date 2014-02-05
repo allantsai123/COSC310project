@@ -24,13 +24,8 @@ public enum ParsedInputType {
     SimpleNo,               //
 
     Debug_Reset,
-<<<<<<< HEAD
-    Debug_ShowStats;
-    
-=======
     Debug_ShowStats,
     Debug_Enable;
->>>>>>> 479be4433c6592d25d6bbbf7b01d36f42dffefa6
 
     public boolean isWellFormed() {
         return (this != ParsedInputType.None) &&
