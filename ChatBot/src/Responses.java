@@ -18,7 +18,7 @@ public final class Responses {
 
     public static List<String> niceDest = Arrays.asList("<Dest> is very nice!", "Everybody loves <Dest>!", "<Dest> is a wonderful place!");
 
-    public static List<String> activities = Arrays.asList("relax on the beach", "swim", "drink", "tan", "visit some ancient Mayan ruins","see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
+    public static List<String> activities = Arrays.asList("relax on the beach", "swim in crystal clear waters", "drink some awesome margaritas", "enjoy the beach and tan", "visit some ancient Mayan ruins","see some of the historical landmarks", "play beach volleyball", "explore the local wildlife areas", "swim with dolphins", "buy some street art");
 
     public static List<String> lang = Arrays.asList("Well the national language is Spanish.", "Spanish is the native language in <Dest>, although some people do speak English","People in <Dest> speak Spanish.");
 

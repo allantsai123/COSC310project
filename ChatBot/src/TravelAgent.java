@@ -70,9 +70,7 @@ public class TravelAgent {
 
             // How the user wants to get to destination
             case TravelMethod:
-                // String transport = parsedInput.getField("travel method");
                 response = responseMaker.getTravelMethod(savedInputs.get("travel method"), savedInputs.get("city"));
-//                response = responseMaker.getTravelCost(savedInputs.get("travel method"));
                 break;
 
             case Distance:
@@ -80,13 +78,13 @@ public class TravelAgent {
             		l = new Location(savedInputs.get("city"), savedInputs.get("city2"));
             		response = responseMaker.getDistances(l.origin, savedInputs.get("city2"));
             	} else {
-            		l = new Location(savedInputs.get("city"));
-            		response = responseMaker.getDistances(l.origin,savedInputs.get("city"));
+            		Location l2 = new Location(savedInputs.get("city"));
+            		response = responseMaker.getDistances(l2.origin,savedInputs.get("city"));
             	}
                 break;
 
             case GetAround:
-                response = responseMaker.getAround();
+                response = responseMaker.getAround(savedInputs.get("city"));
                 break;
 
             case Accomodations:

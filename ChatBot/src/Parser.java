@@ -35,6 +35,7 @@ public final class Parser {
             parseBudget(parsedInput);
             parseActivities(parsedInput);
             parseGetAround(parsedInput);
+            parseGetFood(parsedInput);
 
 
             // parse(parsedInput);
@@ -153,6 +154,12 @@ public final class Parser {
     private static void parseGetAround(ParsedInput parsedInput) {
         if (parsedInput.containsAnyPhrase(ParserDictionary.getAround)) {
             parsedInput.type = ParsedInputType.GetAround;
+        }
+    }
+    
+    private static void parseGetFood(ParsedInput parsedInput){
+    	if (parsedInput.containsAnyPhrase(ParserDictionary.food)) {
+            parsedInput.type = ParsedInputType.Food;
         }
     }
 }

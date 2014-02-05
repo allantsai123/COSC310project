@@ -54,20 +54,22 @@ public final class ResponseMaker {
     	return l.getPlaces(keyword);
     }
     
-    public String getAround(){
-    	return Responses.getRandomResponse(Responses.transport);
+    public String getAround(String location){
+    	return Responses.getRandomResponse(Responses.transport, "Dest", location);
     }
 
     public String getTravelMethod(String travelMethod, String location) {
         if (travelMethod == "car" || travelMethod == "drive") {
-            return "You can if you want to.";
+            String response =  "You can if you want to." + "\n";
+            response += response += getTravelCost(travelMethod) +".";
+            return response;
         } else if (travelMethod == "boat" || travelMethod == "cruise"){
         	String response = Responses.getRandomResponse(Responses.searching) + "\n";
     		response += Responses.getRandomResponse(Responses.boatResponses, "<Dest>",location);
         	return response;
     	} else if (travelMethod == "fly" || travelMethod == "flight" || travelMethod == "plane"){
     		String response = Responses.getRandomResponse(Responses.searching) + "\n";
-    		response += Responses.getRandomResponse(Responses.flightResponses, "<Dest>",location);
+    		response += Responses.getRandomResponse(Responses.flightResponses, "<Dest>",location) + "\n";
     		return response;
     	}
         
@@ -82,11 +84,11 @@ public final class ResponseMaker {
         String response = "Searching for the best accomodations that match you budget. " + "\n";
 
         if (amount >= 130) {
-            response += " " + Responses.getRandomResponse(Responses.niceAccom, "<Dest>",location);
+            response += " " + Responses.getRandomResponse(Responses.niceAccom, "<Dest>",location)+".";
         } else if (amount > 90) {
-            response += " " + Responses.getRandomResponse(Responses.medAccom, "<Dest>",location);
+            response += " " + Responses.getRandomResponse(Responses.medAccom, "<Dest>",location)+".";
         } else {
-            response += " " + Responses.getRandomResponse(Responses.cheapAccom, "<Dest>",location);
+            response += " " + Responses.getRandomResponse(Responses.cheapAccom, "<Dest>",location) +".";
         }
         
         return response;
@@ -94,10 +96,11 @@ public final class ResponseMaker {
     
     public String getLocalFood(){
     	String response = Responses.getRandomResponse(Responses.searching) + "\n";
-    	if(l.getPlaces("food") == "I could not find any places for food"){
-    		response += "";
+    	
+    	if(l.getPlaces("food") == null){
+    		response += Responses.getRandomResponse(Responses.noRestaurants);
     	} else {
-    		response += l.getPlaces("food");
+    		response += l.getPlaces("food")+".";
     	}
     	return response;
     }
@@ -116,7 +119,6 @@ public final class ResponseMaker {
             destination = city + ", " + location;
         }
         l = new Location(destination);
-    	//System.out.println(l.getPlaces("lodging"));
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
     
@@ -124,7 +126,7 @@ public final class ResponseMaker {
     	if(methodOfTravel == ""){
     		return l.estimateTravelCost();
     	} else {
-    		return l.estimateTravelCost(methodOfTravel);
+    		return l.estimateTravelCost();
     	}
     }
 
@@ -165,8 +167,16 @@ public final class ResponseMaker {
     }
 
     public String getActivities() {
-        return "While you're there, you could " + Responses.getRandomResponse(Responses.activities) +
-                ", or even " + Responses.getRandomResponse(Responses.activities);
+        String s1 = Responses.getRandomResponse(Responses.activities);
+        String s2 = s1;
+        while(s2.equals(s1)){
+        	s2 = Responses.getRandomResponse(Responses.activities);
+        }
+        
+        String response = "While you are there you could " + s1 + ", or you could " + s2;
+        
+        return response;
+    
     }
 
     private String substituteParameters(String paramText) {

@@ -35,16 +35,16 @@ public class Location {
 	}
 	
 	public String estimateTravelCost(){
-		return "Flight to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin/2.02,2);
+		return "Driving to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin/2.02,2);
 	}
-	public String estimateTravelCost(String methodOfTravel){
-		if (methodOfTravel.equalsIgnoreCase("flying"))
-			return estimateTravelCost();
-		else if (methodOfTravel.equalsIgnoreCase("driving"))
-			return "Driving to " + this.destination + " from " + this.origin + " would cost approximately $" + lf.round((this.distanceFromOrigin/10)*1.2, 2);
-			
-		return null;
-	}
+//	public String estimateTravelCost(String methodOfTravel){
+//		if (methodOfTravel.equalsIgnoreCase("flying"))
+//			return estimateTravelCost();
+//		else if (methodOfTravel.equalsIgnoreCase("driving"))
+//			return "Driving to " + this.destination + " from " + this.origin + " would cost approximately $" + lf.round((this.distanceFromOrigin/10)*1.2, 2);
+//			
+//		return null;
+//	}
 	
 	public String weatherDescription(){
 		return "It is currently " + tempInCelcius + " degrees in " + destination + " with " + weatherDescription;
@@ -53,7 +53,7 @@ public class Location {
 	public String getPlaces(String keyword){
 		if (!places.containsKey(keyword)){
 			if (!lf.getPlaces(this, keyword))
-				return "I could not find any places for " + keyword;
+				return null;
 		} 
 		ArrayList<String> pl = places.get(keyword);
 		String returnString = "";
