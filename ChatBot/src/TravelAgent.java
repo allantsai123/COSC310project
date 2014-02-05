@@ -106,6 +106,10 @@ public class TravelAgent {
                 response = responseMaker.getWeather(savedInputs.get("city") + ", " + savedInputs.get("destination"));
                 break;
 
+            case Thanks:
+                response = responseMaker.getYoureWelcome();
+                break;
+
             case SimpleYes:
                 response = responseMaker.getSimpleYes();
                 break;
@@ -121,6 +125,11 @@ public class TravelAgent {
             case None:
             default:
                 response = "...";
+                break;
+
+            case Debug_Enable:
+                response = "Debug enabled.";
+                IORW.debugOn = true;
                 break;
 
             case Debug_Reset:

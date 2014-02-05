@@ -36,6 +36,10 @@ public final class ResponseMaker {
         return "Okay, I'm back. What can I help with?";
     }
 
+    public String getYoureWelcome() {
+        return Responses.getRandomResponse(Responses.youreWelcome);
+    }
+
     public String getCities() {
         String cities = "Well, the biggest are ";
 
@@ -112,6 +116,10 @@ public final class ResponseMaker {
             destination = city + ", " + location;
         }
         l = new Location(destination);
+<<<<<<< HEAD
+=======
+    	//System.out.println(l.getPlaces("lodging"));
+>>>>>>> 479be4433c6592d25d6bbbf7b01d36f42dffefa6
         return Responses.getRandomResponse(Responses.niceDest, "<Dest>", destination);
     }
     

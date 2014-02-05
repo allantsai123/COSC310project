@@ -16,6 +16,8 @@ public final class Parser {
             parsedInput.type = ParsedInputType.Debug_ShowStats;
         } else if (userMsgLower.compareTo("reset") == 0) {
             parsedInput.type = ParsedInputType.Debug_Reset;
+        } else if (userMsgLower.compareTo("debugon") == 0) {
+            parsedInput.type = ParsedInputType.Debug_Enable;
         } else {
             // Create the token collection
             parsedInput.tokenCollection.parse(userMessage);
@@ -28,6 +30,12 @@ public final class Parser {
             parseWeather(parsedInput);
             parseTravelMethod(parsedInput);
             parseHowFar(parsedInput);
+            parseCities(parsedInput);
+            parseBookHotel(parsedInput);
+            parseBudget(parsedInput);
+            parseActivities(parsedInput);
+            parseGetAround(parsedInput);
+
 
             // parse(parsedInput);
             // parse(parsedInput);
@@ -113,6 +121,38 @@ public final class Parser {
                 parsedInput.setField("city", matches.get(0));
                 parsedInput.setField("city2", matches.get(1));
             }
+        }
+    }
+
+    private static void parseCities(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.askForCities)) {
+            parsedInput.type = ParsedInputType.ListCities;
+        }
+    }
+
+    private static void parseBookHotel(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.bookInfo)) {
+            parsedInput.type = ParsedInputType.Accomodations;
+        }
+    }
+
+    private static void parseBudget(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.budget)) {
+            parsedInput.type = ParsedInputType.Budget;
+            String budget = parsedInput.tokenCollection.getNumbers().get(0);
+            parsedInput.setField("budget", budget);
+        }
+    }
+
+    private static void parseActivities(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.activities)) {
+            parsedInput.type = ParsedInputType.Activity;
+        }
+    }
+
+    private static void parseGetAround(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.getAround)) {
+            parsedInput.type = ParsedInputType.GetAround;
         }
     }
 }
