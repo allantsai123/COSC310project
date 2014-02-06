@@ -1,7 +1,8 @@
 import java.util.*;
 
 public final class ResponseMaker {
-    LocationFactory lf = new LocationFactory();
+	List<Location> locationSet = new ArrayList();
+
     Location l; // = new Location(); // we need a constructor somewhere. In the parser when the destination is received? Then pass to ResponseMaker for use later?
 
     public ResponseMaker(){}
@@ -153,17 +154,19 @@ public final class ResponseMaker {
     public String getWeather(String destination) {
     	assert destination != null;
     	
-        if (StringUtils.isNullOrEmpty(destination)) {
-            return "I need to know a place to help you with that.";
+    	if (StringUtils.isNullOrEmpty(destination)) {
+        	int i=0;String str = "";
+        	if (locationSet.size() == 0)
+        		return "I need to know a place to help you with that.";
+        	else
+        	  while(locationSet.get(i) !=null)
+        		  str += locationSet.get(i).destination + ": " + locationSet.get(i).tempInCelcius +
+        		         " degrees C with " + locationSet.get(i++).weatherDescription;
+        	return str;    	 
         }
-        
-        Random r = new Random();
-        int temp = r.nextInt(10);
-        temp = temp+20;
-        
-        l.setDestination(destination);
-        lf.build(l);
-        return "It is currently " + l.tempInCelcius + " degrees C in " + l.destination;
+        locationSet.add(new Location(destination));
+        return "It is currently " + locationSet.get(locationSet.size()-1).tempInCelcius + " degrees C in " + locationSet.get(locationSet.size()-1).destination;
+  
     }
 
     public String getActivities() {

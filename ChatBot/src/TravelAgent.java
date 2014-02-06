@@ -101,7 +101,7 @@ public class TravelAgent {
                 break;
 
             case CheckWeather:
-                response = responseMaker.getWeather(savedInputs.get("city") + ", " + savedInputs.get("destination"));
+                response = responseMaker.getWeather(savedInputs.get("city"));
                 break;
 
             case Thanks:
