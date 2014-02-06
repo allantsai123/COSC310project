@@ -61,7 +61,7 @@ public final class ResponseMaker {
     public String getTravelMethod(String travelMethod, String location) {
         if (travelMethod == "car" || travelMethod == "drive") {
             String response =  "You can if you want to." + "\n";
-            response += response += getTravelCost(travelMethod) +".";
+            response += getTravelCost(travelMethod) +".";
             return response;
         } else if (travelMethod == "boat" || travelMethod == "cruise"){
         	String response = Responses.getRandomResponse(Responses.searching) + "\n";

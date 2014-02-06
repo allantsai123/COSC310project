@@ -1,7 +1,7 @@
-Hi!
 I'd like to go to Mexico.
-Mexico City. Can I drive there?
-Ok fine. Can I fly then?
+Cancun. 
+Can I drive there?
+Ok, can I fly then?
 How far is it from Kelowna to Cancun?
 What can I do in Cancun?
 How far is it from Cancun to Chichen Itza?
@@ -14,8 +14,8 @@ Can I cancel my reservation later if needed?
 Oh ok, well then I'd like to go soon. What's the weather like?
 Is there anything else I should know?
 Alright thanks. What are the other big cities in Mexico?
-Maybe I'll go to Tijuanna.
-How far is Tijuanna from Mexico City?
+Maybe I'll go to Mexico City.
+How far is Cancun from Mexico City?
 Do I need a passport while I'm there?
 Can you help find me a hotel there as well?
 I can afford $80 a night.
@@ -27,4 +27,5 @@ Do you offer any cruises in the area?
 I'm thinking of going to Juarez too, how far is Juarez from Tijuana?
 What would be the best way to get there?
 Could you help me book a hotel there too?
+I can afford $100 a night.
 Ok, I have a lot to think about. Bye.
