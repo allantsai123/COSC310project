@@ -62,6 +62,9 @@ public class LocationFactory {
 		  */
 		 JSONObject json = new JSONObject(str);
 		 if (json.getString("status").equalsIgnoreCase("ok")){
+			 if (json.getJSONArray("rows").getJSONObject(0).getJSONArray("elements").getJSONObject(0).getString("status").equalsIgnoreCase("ZERO_RESULTS")){
+				 return false;
+			 }
 			 JSONObject j1 = json.getJSONArray("rows").getJSONObject(0).getJSONArray("elements").getJSONObject(0);
 			 JSONObject distance = j1.getJSONObject("distance");
 		     double distanceInMeters = distance.getDouble("value");

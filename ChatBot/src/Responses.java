@@ -28,7 +28,7 @@ public final class Responses {
     
     public static List<String> boatResponses = Arrays.asList("Sure, we are partnered with many different cruise lines.", "Of course! I've heard that it's one of the best places to for a cruise.", "Yes! The Maya Riviera is one of the most popular cruise destinations.");
 
-    public static List<String> niceAccom = Arrays.asList("The Flamingo, in <Dest>, is one of the top hotels in the country. Excellent all inclusive accomodations just minutes from downtown <Dest>.", "The Fiesta Americana Condesa is a fantastic resort right on the white sandy beaches of <Dest>. The resort is all inclusive!");
+    public static List<String> niceAccom = Arrays.asList("The Flamingo, in <Dest>, is one of the top hotels in the country. Excellent all inclusive accommodations just minutes from downtown <Dest>.", "The Fiesta Americana Condesa is a fantastic resort right on the white sandy beaches of <Dest>. The resort is all inclusive!");
 
     public static List<String> medAccom = Arrays.asList("We have a nice hotel in <Dest> with a pool and swim up bar. Only $105 per night.", "I suggest BeachScape Kin Ha Villas. It just takes seconds to walk from your room to the beach!","Hotel Tulipan is one of our highest rated hotels. Right in the heart of <Dest> and only $95 a night.", "In <Dest> we have a fantastic beachfront hotel. Just steps outside your room, and only $100 a night.", "");
 
@@ -36,7 +36,7 @@ public final class Responses {
 
     public static List<String> genAccom = Arrays.asList("We offer a wide variety of accomodations. Do you have a budget?","We offer lots of different hotels. Do you have a price in mind?", "Were you interested in a family resort, or one of our luxury offerings?");
 
-    public static List<String> searching = Arrays.asList("Well let me find out... ", "Calculating... ", "Let me look that up... ", "Determining what's best for you.", "Searching...");
+    public static List<String> searching = Arrays.asList("Well let me find out... ", "Let me look that up... ", "Determining what's best for you.", "Searching...");
 
     public static List<String> simpleYes = Arrays.asList("Yes.", "Of course, let me look at some options.", "Sure! We can do that.", "I think that can be done.");
 
