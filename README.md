@@ -24,7 +24,9 @@ The input type is then passed to the TravelAgent class, which again uses cases t
 The org.json package has classes built by Douglas Crockford (https://github.com/douglascrockford/JSON-js) to allow the prorgam to interact with the Google API's.
 
 The best way to run the application is by executing the JAR file. After it has been downloaded do the following:
+
 1. Open Command Prompt and navigate to the folder location when the JAR was downloaded.
+
 2. Type: java -jar ChatBot.jar
 
 ========================================================================================================
