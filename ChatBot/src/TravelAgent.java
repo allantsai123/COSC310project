@@ -15,7 +15,7 @@ public class TravelAgent {
     }
 
     public void resetState() {
-        // TODO reset state
+        // TODO reset state, delete memory etc
     }
 
     public String getResponse(ParsedInput parsedInput) {
@@ -30,23 +30,23 @@ public class TravelAgent {
         savedInputs.putAll(parsedInput.inputs);
         // Check which kind of question or statement the user inputted
         switch (parsedInput.getType()) {
-            
-        	case SetDestination:
-            	response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
-            	l = new Location(savedInputs.get("destination"));
-            	break;
-        	
-        	case TooLong:
+
+            case SetDestination:
+                response = responseMaker.getDestinationInfo(savedInputs.get("destination"), savedInputs.get("city"));
+                l = new Location(savedInputs.get("destination"));
+                break;
+
+            case TooLong:
                 response = "Sorry, your message is too long. I don't have time to read that.";
                 break;
 
             case Greeting:
                 response = greeting(parsedInput);
                 break;
-                
+
             case Food:
-            	response = responseMaker.getLocalFood();
-            	break;
+                response = responseMaker.getLocalFood();
+                break;
 
             case Farewell:
                 response = farewell(parsedInput);
@@ -73,13 +73,13 @@ public class TravelAgent {
                 break;
 
             case Distance:
-            	if(savedInputs.get("city2") != null){
-            		l = new Location(savedInputs.get("city"), savedInputs.get("city2"));
-            		response = responseMaker.getDistances(l.origin, savedInputs.get("city2"));
-            	} else {
-            		Location l2 = new Location(savedInputs.get("city"));
-            		response = responseMaker.getDistances(l2.origin,savedInputs.get("city"));
-            	}
+                if (savedInputs.get("city2") != null) {
+                    l = new Location(savedInputs.get("city"), savedInputs.get("city2"));
+                    response = responseMaker.getDistances(l.origin, savedInputs.get("city2"));
+                } else {
+                    Location l2 = new Location(savedInputs.get("city"));
+                    response = responseMaker.getDistances(l2.origin, savedInputs.get("city"));
+                }
                 break;
 
             case GetAround:
@@ -87,12 +87,12 @@ public class TravelAgent {
                 break;
 
             case Accomodations:
-                response = responseMaker.getGenAccomodation();
+                response = responseMaker.getGenAccommodation();
                 break;
 
             case Budget:
                 int amount = Integer.valueOf(savedInputs.get("budget"));
-                response = responseMaker.getBudgetAccom(amount,savedInputs.get("city"));
+                response = responseMaker.getBudgetAccom(amount, savedInputs.get("city"));
                 break;
 
             case Language:

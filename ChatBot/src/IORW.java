@@ -33,15 +33,7 @@ public final class IORW {
         if (writeToSystemOut) System.out.println(x);
     }
 
-    public static void writeLine(int x) {
-        writeLine(Integer.toString(x));
-    }
-
     public static void debug(String x) {
         if (debugOn) writeLine(x);
-    }
-
-    public static void debug(int x) {
-        debug(Integer.toString(x));
     }
 }

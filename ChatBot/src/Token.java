@@ -1,3 +1,4 @@
+// TODO remove this class?
 public final class Token {
     private String fullToken;
 

@@ -4,7 +4,7 @@ public final class FuzzySubstringResults {
     double similarity = 0;
 
     FuzzySubstringResults(int levenshteinDistance, int indexOfEndOfMatch, double similarity) {
-        this.levenshteinDistance= levenshteinDistance;
+        this.levenshteinDistance = levenshteinDistance;
         this.indexOfEndOfMatch = indexOfEndOfMatch;
         this.similarity = similarity;
     }

@@ -33,7 +33,6 @@ SOFTWARE.
  */
 public class XMLTokener extends JSONTokener {
 
-
     /**
      * The table of entity values. It initially contains Character values for
      * amp, apos, gt, lt, quot.
@@ -83,7 +82,6 @@ public class XMLTokener extends JSONTokener {
         }
     }
 
-
     /**
      * Get the next XML outer token, trimming whitespace. There are two kinds
      * of tokens: the '<' character which begins a markup tag, and the content
@@ -120,7 +118,6 @@ public class XMLTokener extends JSONTokener {
         }
     }
 
-
     /**
      * Return the next entity. These entities are translated to Characters:
      * <code>&amp;  &apos;  &gt;  &lt;  &quot;</code>.
@@ -145,7 +142,6 @@ public class XMLTokener extends JSONTokener {
         Object object = entity.get(string);
         return object != null ? object : ampersand + string + ";";
     }
-
 
     /**
      * Returns the next XML meta token. This is used for skipping over <!...>
@@ -212,7 +208,6 @@ public class XMLTokener extends JSONTokener {
                 }
         }
     }
-
 
     /**
      * Get the next XML Token. These tokens are found inside of angle
@@ -297,7 +292,6 @@ public class XMLTokener extends JSONTokener {
                 }
         }
     }
-
 
     /**
      * Skip characters until past the requested string.

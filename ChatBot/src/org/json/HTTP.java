@@ -107,7 +107,6 @@ public class HTTP {
         return jo;
     }
 
-
     /**
      * Convert a JSONObject into an HTTP header. A request header must contain
      * <pre>{

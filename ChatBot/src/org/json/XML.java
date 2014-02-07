@@ -26,7 +26,6 @@ SOFTWARE.
 
 import java.util.Iterator;
 
-
 /**
  * This provides static methods to convert an XML text into a JSONObject,
  * and to covert a JSONObject into an XML text.
@@ -312,7 +311,6 @@ public class XML {
         }
     }
 
-
     /**
      * Try to convert a string into a number, boolean, or null. If the string
      * can't be converted, return the string. This is much less ambitious than
@@ -357,7 +355,6 @@ public class XML {
         return string;
     }
 
-
     /**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject. Some information may be lost in this transformation
@@ -382,7 +379,6 @@ public class XML {
         return jo;
     }
 
-
     /**
      * Convert a JSONObject into a well-formed, element-normal XML string.
      *
@@ -393,7 +389,6 @@ public class XML {
     public static String toString(Object object) throws JSONException {
         return toString(object, null);
     }
-
 
     /**
      * Convert a JSONObject into a well-formed, element-normal XML string.

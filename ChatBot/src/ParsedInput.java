@@ -15,10 +15,6 @@ public final class ParsedInput {
         return inputs.put(fieldName, value);
     }
 
-    public String getField(String fieldName) {
-        return inputs.get(fieldName);
-    }
-
     private int getAllowedDistance(String source, String match) {
         int smallerLength = Math.min(source.length(), match.length());
         return (int) Math.round(FUZZY_ERROR_RATE * (double) smallerLength);
@@ -73,9 +69,6 @@ public final class ParsedInput {
 
             // Run the fuzzy substring matcher
             FuzzySubstringResults result = FuzzyMatching.Substring(userInputPadded, phrasePadded);
-
-            //IORW.writeLine(phrasePadded + " -- " + userInputPadded);
-            //IORW.writeLine("DEBUG -- dist: " + result.levenshteinDistance + ", allowed: " + allowedDistance + ",  with: '" + phrase + "' at: " + result.indexOfEndOfMatch + " rank: " + Math.round(result.similarity));
 
             if (result.levenshteinDistance <= allowedDistance) { // Input contains a close-enough recognized phrase
                 if (result.similarity > bestSimilarity) {

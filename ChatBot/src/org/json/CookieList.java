@@ -60,7 +60,6 @@ public class CookieList {
         return jo;
     }
 
-
     /**
      * Convert a JSONObject into a cookie list. A cookie list is a sequence
      * of name/value pairs. The names are separated from the values by '='.

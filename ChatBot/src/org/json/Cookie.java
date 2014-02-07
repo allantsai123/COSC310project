@@ -64,7 +64,6 @@ public class Cookie {
         return sb.toString();
     }
 
-
     /**
      * Convert a cookie specification string into a JSONObject. The string
      * will contain a name value pair separated by '='. The name and the value
@@ -106,7 +105,6 @@ public class Cookie {
         }
         return jo;
     }
-
 
     /**
      * Convert a JSONObject into a cookie specification string. The JSONObject

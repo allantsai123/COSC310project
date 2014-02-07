@@ -36,17 +36,9 @@ public final class Parser {
             parseActivities(parsedInput);
             parseGetAround(parsedInput);
             parseGetFood(parsedInput);
-
-
-            // parse(parsedInput);
-            // parse(parsedInput);
         }
 
         return parsedInput;
-    }
-
-    private static void parse(ParsedInput parsedInput) {
-
     }
 
     private static void parseGreetingOrFarewell(ParsedInput parsedInput) {
@@ -58,11 +50,7 @@ public final class Parser {
             parsedInput.type = ParsedInputType.Farewell;
         }
 
-        // Check for user telling their name
-//        if (parsedInput.getOrigMsg().contains("im dave")) {
-//            parsedInput.setField("username", "Dave");
-//            parsedInput.type = ParsedInputType.Greeting;
-//        }
+        // Potential TODO: parse user telling name
     }
 
     private static void parsePleaseComeBack(ParsedInput parsedInput) {
@@ -156,9 +144,9 @@ public final class Parser {
             parsedInput.type = ParsedInputType.GetAround;
         }
     }
-    
-    private static void parseGetFood(ParsedInput parsedInput){
-    	if (parsedInput.containsAnyPhrase(ParserDictionary.food)) {
+
+    private static void parseGetFood(ParsedInput parsedInput) {
+        if (parsedInput.containsAnyPhrase(ParserDictionary.food)) {
             parsedInput.type = ParsedInputType.Food;
         }
     }

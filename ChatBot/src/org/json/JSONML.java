@@ -26,7 +26,6 @@ SOFTWARE.
 
 import java.util.Iterator;
 
-
 /**
  * This provides static methods to convert an XML text into a JSONArray or
  * JSONObject, and to covert a JSONArray or JSONObject into an XML text using
@@ -235,7 +234,6 @@ public class JSONML {
         }
     }
 
-
     /**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONArray using the JsonML transform. Each XML tag is represented as
@@ -253,7 +251,6 @@ public class JSONML {
         return toJSONArray(new XMLTokener(string));
     }
 
-
     /**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONArray using the JsonML transform. Each XML tag is represented as
@@ -270,7 +267,6 @@ public class JSONML {
     public static JSONArray toJSONArray(XMLTokener x) throws JSONException {
         return (JSONArray) parse(x, true, null);
     }
-
 
     /**
      * Convert a well-formed (but not necessarily valid) XML string into a
@@ -290,7 +286,6 @@ public class JSONML {
         return (JSONObject) parse(x, false, null);
     }
 
-
     /**
      * Convert a well-formed (but not necessarily valid) XML string into a
      * JSONObject using the JsonML transform. Each XML tag is represented as
@@ -308,7 +303,6 @@ public class JSONML {
     public static JSONObject toJSONObject(String string) throws JSONException {
         return toJSONObject(new XMLTokener(string));
     }
-
 
     /**
      * Reverse the JSONML transformation, making an XML text from a JSONArray.
