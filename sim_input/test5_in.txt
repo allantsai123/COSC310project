@@ -11,7 +11,6 @@ Can I go on a cruise there?
 can you find me a hotel?
 I want to book a hotel
 I can afford $80 a night
-Can I cancel my reservation?
 Where can I eat?
 I want to go soon, what's the weather like?
 is there anything else I should know?
@@ -25,14 +24,10 @@ Can I book a hotel there?
 I can afford $100 a night
 maybe not, i can afford $80 a night
 where can I eat there?
-What can I do there?
-What kinds of things can I do there?
 What are some things to do there?
 Do people speak English?
 Can I go on a cruise?
 How far is Juarez from Mexico City?
-how can I get there?
-how can I travel there?
 How can I get around there?
 Can I book a hotel there?
 I can afford $100 a night
