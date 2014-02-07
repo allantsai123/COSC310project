@@ -137,9 +137,9 @@ public final class ResponseMaker {
 
     public String getDistances(String city, String city2) {
         String response = Responses.getRandomResponse(Responses.searching) + "\n";
-        l = new Location(city,city2);
-        
-        response = "The distance between " + city + " and " + city2 + " is " + l.distanceFromOrigin + " kilometers.";
+        l = new Location(city,city2); 
+        response = "The distance between " + city + " and " + city2 + " is ";
+        response += (l.distanceFromOrigin == 0) ? "...I don't know." : l.distanceFromOrigin + "km";
         return response;
     }
     
@@ -153,7 +153,7 @@ public final class ResponseMaker {
 
     public String getWeather(String destination) {
     	assert destination != null;
-    	
+    	System.out.println(destination);
         if (StringUtils.isNullOrEmpty(destination)) {
             int i=0;
             String str = "";
