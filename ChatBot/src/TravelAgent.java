@@ -28,7 +28,6 @@ public class TravelAgent {
 
         // Save all user entered variables
         savedInputs.putAll(parsedInput.inputs);
-
         // Check which kind of question or statement the user inputted
         switch (parsedInput.getType()) {
             

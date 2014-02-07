@@ -37,6 +37,9 @@ public class Location {
 	public String estimateTravelCost(){
 		return "Driving to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin/2.02,2);
 	}
+	public String estimateFlightCost(){
+		return "Flying to " + this.destination + ", from " + this.origin + " would cost approximately $" + lf.round(this.distanceFromOrigin/2.02,2);
+	}
 //	public String estimateTravelCost(String methodOfTravel){
 //		if (methodOfTravel.equalsIgnoreCase("flying"))
 //			return estimateTravelCost();
