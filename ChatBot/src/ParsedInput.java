@@ -1,7 +1,7 @@
 import java.util.*;
 
 public final class ParsedInput {
-    private static final double FUZZY_ERROR_RATE = 0.09; // percentage
+    private static final double FUZZY_ERROR_RATE = 0.05; // percentage
 
     public ParsedInputType type = ParsedInputType.DontUnderstand;
     public HashMap<String, String> inputs = new HashMap<>();

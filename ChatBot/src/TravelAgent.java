@@ -116,7 +116,7 @@ public class TravelAgent {
                 break;
 
             case DontUnderstand:
-                response = "Sorry, I don't understand what you said.";
+                response = responseMaker.getDontKnow();
                 break;
 
             case None:

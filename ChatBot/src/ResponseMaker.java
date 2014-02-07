@@ -1,17 +1,10 @@
 import java.util.*;
 
 public final class ResponseMaker {
-    LocationFactory lf = new LocationFactory();
     List<Location> locationSet = new ArrayList<>();
     Location l;
 
     public ResponseMaker() {
-    }
-
-    // TODO delete this?
-    public ResponseMaker(Location l) {
-        super();
-        this.l = l;
     }
 
     public String getGreeting(String username) {
@@ -63,16 +56,17 @@ public final class ResponseMaker {
 
     public String getTravelMethod(String travelMethod, String location) {
         if (travelMethod == "car" || travelMethod == "drive") {
-            String response = "You can if you want to." + "\n";
+            String response = "You can if you want to." + "\r\n";
             response += getTravelCost(travelMethod) + ".";
             return response;
         } else if (travelMethod == "boat" || travelMethod == "cruise") {
-            String response = Responses.getRandomResponse(Responses.searching) + "\n";
+            String response = Responses.getRandomResponse(Responses.searching) + "\r\n";
             response += Responses.getRandomResponse(Responses.boatResponses, "<Dest>", location);
             return response;
         } else if (travelMethod == "fly" || travelMethod == "flight" || travelMethod == "plane") {
-            String response = Responses.getRandomResponse(Responses.searching) + "\n";
-            response += Responses.getRandomResponse(Responses.flightResponses, "<Dest>", location) + "\n";
+            String response = Responses.getRandomResponse(Responses.searching) + "\r\n";
+            response += Responses.getRandomResponse(Responses.flightResponses, "<Dest>", location) + "\r\n";
+            response += getTravelCost(travelMethod) + ".";
             return response;
         }
 
@@ -126,10 +120,10 @@ public final class ResponseMaker {
     }
 
     public String getTravelCost(String methodOfTravel) {
-        if (methodOfTravel == "") {
+        if (methodOfTravel == "car" || methodOfTravel == "drive") {
             return l.estimateTravelCost();
         } else {
-            return l.estimateTravelCost();
+            return l.estimateFlightCost();
         }
     }
 
@@ -145,19 +139,12 @@ public final class ResponseMaker {
         return response;
     }
 
-    // TODO delete this?
-    public String getDontKnow(ParsedInputType type) {
-        if (type == ParsedInputType.DontUnderstand) {
+    public String getDontKnow() {
             return Responses.getRandomResponse(Responses.dontKnow);
-        }
-
-        return "I really don't know...";
     }
 
     public String getWeather(String destination) {
         assert destination != null;
-
-        System.out.println(destination); // TODO delete this?
 
         if (StringUtils.isNullOrEmpty(destination)) {
             int i = 0;
